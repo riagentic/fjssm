@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FJSSM", "FJSSM.vcproj", "{2FF1C558-0FE8-4A2D-9B5B-ED7C99341A83}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{846093D5-4B11-47C2-A19A-8622F32C9E3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2FF1C558-0FE8-4A2D-9B5B-ED7C99341A83}.Debug.ActiveCfg = Debug|Win32
+		{2FF1C558-0FE8-4A2D-9B5B-ED7C99341A83}.Debug.Build.0 = Debug|Win32
+		{2FF1C558-0FE8-4A2D-9B5B-ED7C99341A83}.Release.ActiveCfg = Release|Win32
+		{2FF1C558-0FE8-4A2D-9B5B-ED7C99341A83}.Release.Build.0 = Release|Win32
+		{846093D5-4B11-47C2-A19A-8622F32C9E3A}.Debug.ActiveCfg = Debug
+		{846093D5-4B11-47C2-A19A-8622F32C9E3A}.Release.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,4 @@
+// Microsoft Visual C++ generated Help ID include file.
+// Used by FJSSM.rc
+//
+#define HIDC_DISPLAY_STATIC             0x80640461    // IDD_ABOUTBOX

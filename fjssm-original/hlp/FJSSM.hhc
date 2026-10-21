@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&lt;&lt;FJSS Maker&gt;&gt; Obsah nápovìdy">
+		<param name="Local" value="main_index.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Menu">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Projekt">
+			<param name="Local" value="menu_file.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Úpravy">
+			<param name="Local" value="menu_edit.htm">			
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Konverze">
+			<param name="Local" value="menu_convert.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Prohlížení">
+			<param name="Local" value="menu_view.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Výpoèet">
+			<param name="Local" value="menu_compute.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu Výsledky">
+			<param name="Local" value="menu_result.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Help menu commands">
+			<param name="Local" value="menu_help.htm">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

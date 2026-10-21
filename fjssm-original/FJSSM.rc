@@ -1,0 +1,1058 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\FJSSM.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 214, 174
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "O programu"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,42,132,
+                    126,13
+    DEFPUSHBUTTON   "OK",IDOK,78,150,50,16,WS_GROUP
+    LTEXT           "",IDC_DISPLAY_STATIC,6,48,201,78,0,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+    CONTROL         243,IDC_ST_BITMAP,"Static",SS_BITMAP | SS_REALSIZEIMAGE,
+                    12,4,15,13
+    LTEXT           "Program FJSS Maker",IDC_STATIC,54,12,66,8
+    LTEXT           "Verze 1.0",IDC_STATIC,54,24,32,8
+END
+
+IDD_SADLG DIALOGEX 0, 0, 328, 241
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SimulovanÈ ûÌh·nÌ"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_SA_TIME,108,18,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SA_MINTEMP,108,36,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SA_TEMP,108,54,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SA_CYCLE,108,72,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SA_TEMPCOEF,108,90,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SA_CYCLECOEF,108,108,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&KritÈrium",IDC_BT_CRITERION,198,156,50,16
+    PUSHBUTTON      "OK",IDOK,258,198,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,198,198,50,16
+    LTEXT           "Maxim·lnÌ Ëas v˝poËtu",IDC_STATIC,18,24,73,8
+    LTEXT           "PoË·teËnÌ teplota",IDC_STATIC,18,60,57,8
+    LTEXT           "PoË·teËnÌ poËet cykl˘",IDC_STATIC,18,78,72,8
+    LTEXT           "Koeficient redukce teploty",IDC_STATIC,18,96,83,8
+    LTEXT           "Koeficient dÈlky cyklu",IDC_STATIC,18,114,70,8
+    GROUPBOX        "VstupnÌ parametry v˝poËtu",IDC_STATIC,6,6,162,132
+    CONTROL         "",IDC_SA_PROG_CYCLE,"msctls_progress32",WS_BORDER,186,
+                    72,120,12
+    LTEXT           " ",IDC_ST_ACTTIME,240,90,72,8
+    GROUPBOX        "Pr˘bÏh v˝poËtu",IDC_STATIC,174,6,150,132
+    LTEXT           "Aktu·lnÌ teplota: ",IDC_STATIC,186,24,54,8
+    LTEXT           "",IDC_ST_ACTTEMP,252,24,47,8
+    LTEXT           "",IDC_ST_ACTCYCLE,240,60,66,8
+    LTEXT           "NejlepöÌ dosaûen· hodnota:",IDC_STATIC,18,210,89,8
+    CONTROL         "",IDC_SA_PROG_TIME,"msctls_progress32",WS_BORDER,186,
+                    102,120,12
+    LTEXT           "Pr˘bÏh cykl˘:",IDC_STATIC,186,60,44,8
+    LTEXT           "»as v˝poËtu",IDC_STATIC,186,90,40,8
+    GROUPBOX        "V˝sledky",IDC_STATIC,6,144,162,90
+    LTEXT           "Aktu·lnÌ kritÈrium:",IDC_STATIC,18,157,57,8
+    LTEXT           " ",IDC_ST_BESTVOOF,114,210,48,8
+    LTEXT           "Static",IDC_ST_ACTCRIT,18,168,138,30
+    LTEXT           "Minim·lnÌ teplota",IDC_STATIC,18,42,54,8
+    DEFPUSHBUTTON   "&V˝poËet",IDC_BT_SOLVESA,258,156,50,16
+END
+
+IDD_GADLG DIALOGEX 0, 0, 358, 270
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Genetick˝ algoritmus"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_GA_TIME,138,24,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_POPULATION,138,42,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_CYCLE,138,60,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_SELCOEF,138,78,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_MINMSX,138,96,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_MSMCYCLE,138,114,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GA_LSCYCLE,138,132,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&V˝poËet",IDC_BT_SOLVEGA,282,198,50,16
+    PUSHBUTTON      "&KritÈrium",IDC_BT_CRITERION,222,198,50,16
+    PUSHBUTTON      "OK",IDOK,282,234,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,222,234,50,16
+    LTEXT           "PoËet hlavnÌch cyl˘",IDC_STATIC,18,66,64,8
+    LTEXT           "»as v˝poËtu",IDC_STATIC,18,30,40,8
+    LTEXT           "Velikost populace",IDC_STATIC,18,48,57,8
+    GROUPBOX        "VstupnÌ parametry",IDC_STATIC,6,6,192,156
+    LTEXT           "PoËet cykl˘ pro MSM",IDC_STATIC,18,120,96,8
+    LTEXT           "PoËet cykl˘ pro lok·lnÌ hled·nÌ",IDC_STATIC,18,138,114,
+                    8
+    LTEXT           "Vytv·¯enÌ poË·teËnÌ populace",IDC_STATIC,66,186,97,8
+    LTEXT           "Selekce",IDC_STATIC,66,198,27,8
+    LTEXT           "MSM Mutace",IDC_STATIC,66,222,44,8
+    LTEXT           "Lok·lnÌ hled·nÌ",IDC_STATIC,66,234,50,8
+    LTEXT           "----->",IDC_ST_ARROW1,36,186,15,8
+    LTEXT           "----->",IDC_ST_ARROW2,36,198,15,8
+    LTEXT           "----->",IDC_ST_ARROW3,36,210,15,8
+    LTEXT           "----->",IDC_ST_ARROW4,36,222,15,8
+    GROUPBOX        "-Aktu·lnÌ akce",IDC_STATIC,6,168,192,96
+    GROUPBOX        "Static",IDC_STATIC,204,6,150,258
+    CONTROL         "",IDC_PROG_TIME,"msctls_progress32",WS_BORDER,216,168,
+                    120,12
+    CONTROL         "",IDC_PROG_CYCLE,"msctls_progress32",WS_BORDER,216,138,
+                    120,12
+    LTEXT           "Cyklus:",IDC_STATIC,216,126,48,8
+    LTEXT           "»as:",IDC_STATIC,216,156,48,8
+    LTEXT           "Aktu·lnÌ kritÈrium:",IDC_STATIC,216,18,57,8
+    LTEXT           "Aktu·lnÌ kritÈrium:",IDC_ST_ACTCRIT,216,30,120,30
+    LTEXT           "PoslednÌ vyölechtÏn˝ potomek:",IDC_STATIC,216,96,99,8
+    LTEXT           "",IDC_ST_BESTVOOF,282,78,48,8
+    LTEXT           "",IDC_ST_ACTTIME,258,156,67,8
+    LTEXT           "",IDC_ST_ACTCYCLE,258,126,69,8
+    LTEXT           "NejlepöÌ jedinec v populaci:",IDC_STATIC,216,66,88,8
+    LTEXT           "",IDC_ST_LASTVOOF,282,108,36,8
+    LTEXT           "UËelov· funkce ",IDC_STATIC,216,78,54,8
+    LTEXT           "UËelov· funkce ",IDC_STATIC,216,108,54,8
+    LTEXT           "MSX K¯ÌûenÌ",IDC_STATIC,66,210,41,8
+    LTEXT           "----->",IDC_ST_ARROW5,36,234,15,8
+    LTEXT           "⁄prava populace",IDC_STATIC,66,246,56,8
+    LTEXT           "----->",IDC_ST_ARROW6,36,246,15,8
+    LTEXT           "Koeficient v˝bÏru",IDC_STATIC,18,84,56,8
+    LTEXT           "Min. DGD pro k¯ÌûenÌ",IDC_STATIC,18,102,68,8
+END
+
+IDD_CRITERIADLG DIALOGEX 0, 0, 382, 265
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "V˝bÏr kritÈria pro ˙Ëelovou funkci"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_RD_CRIT0,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_GROUP,24,30,16,8
+    CONTROL         "",IDC_RD_CRIT1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,24,66,16,8
+    CONTROL         "",IDC_RD_CRIT2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,24,84,16,8
+    CONTROL         "",IDC_RD_CRIT3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,24,102,16,8
+    CONTROL         "",IDC_RD_CRIT4,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,24,144,16,8
+    CONTROL         "",IDC_RD_CRIT5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,204,36,16,8
+    CONTROL         "",IDC_RD_CRIT6,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,204,108,16,8
+    CONTROL         "",IDC_RD_CRIT7,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,204,132,16,8
+    CONTROL         "",IDC_RD_CRIT8,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,204,156,16,8
+    CONTROL         "",IDC_RD_CRIT9,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_TABSTOP,204,180,16,8
+    CONTROL         "",IDC_RD_FMAX,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,18,228,16,8
+    CONTROL         "",IDC_RD_FSUM,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    18,239,16,8
+    DEFPUSHBUTTON   "OK",IDOK,282,228,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,216,228,50,16
+    EDITTEXT        IDC_ED_W1_M,48,120,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ED_W2_S,102,120,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ED_W1,48,162,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ED_W2,48,180,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ED_W3,102,162,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ED_W4,102,180,30,12,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "w1",IDC_STATIC,24,162,10,8
+    LTEXT           "w2",IDC_STATIC,24,180,10,8
+    LTEXT           "",IDC_STATIC,204,24,8,8
+    LTEXT           "FPT / FDD kritÈria",IDC_STATIC_FDDFPT,204,90,59,8
+    LTEXT           "Fmax",IDC_STATIC_FMAX,42,228,18,8
+    LTEXT           "Fsum",IDC_STATIC_FSUM,42,239,18,8
+    LTEXT           "CPT / FDD kritÈria",IDC_STATIC_FDDCPT,204,24,60,8
+    GROUPBOX        "Typ ˙ËelovÈ funkce",IDC_STATIC,6,210,174,48
+    GROUPBOX        "OstatnÌ kritÈria",IDC_STATIC,186,6,192,198
+    LTEXT           "FPT /CDD kritÈria",IDC_STATIC_FDDFPT2,204,60,58,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT0,48,30,120,8
+    LTEXT           "w1",IDC_STATIC,24,120,10,8
+    LTEXT           "w2",IDC_STATIC,84,120,10,8
+    LTEXT           "w3",IDC_STATIC,84,162,10,8
+    LTEXT           "w4",IDC_STATIC,84,180,10,8
+    GROUPBOX        "KritÈria zaloûen· na makespanu",IDC_STATIC,6,6,171,198
+    LTEXT           "CPT /  *",IDC_STATIC,24,18,27,8
+    LTEXT           "FPT /  *",IDC_STATIC,24,54,26,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT1,48,66,120,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT2,48,84,120,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT3,48,102,120,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT4,48,144,120,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT5,222,36,120,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT6,222,108,132,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT7,222,132,132,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT8,222,156,144,8
+    LTEXT           "Crisp makespan",IDC_ST_CRIT9,222,180,132,12
+END
+
+IDD_JOBDLG DIALOGEX 0, 0, 436, 241
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "⁄prava job˘"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LB_JOB,24,24,102,144,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&P¯idat",IDC_BT_ADD,78,180,50,16
+    PUSHBUTTON      "&Odebrat",IDC_BT_REMOVE,78,204,50,16
+    EDITTEXT        IDC_ED_NAME,210,42,198,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_ALFA,366,78,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_BETA,366,95,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_DD1,192,157,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_DD2,270,156,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_DD3,192,174,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_DD4,270,174,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_LAMBDA1,366,138,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_LAMBDA2,366,156,40,14,ES_AUTOHSCROLL
+    CONTROL         "&Color",IDC_CRBT_JOB,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    168,210,50,16
+    PUSHBUTTON      "&Upravit",IDC_BT_CHANGE,366,210,50,16
+    DEFPUSHBUTTON   "OK",IDOK,306,210,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,246,210,50,16
+    GROUPBOX        "Seznam job˘",IDC_STATIC,6,6,138,228
+    LTEXT           "N·zev",IDC_STATIC,168,42,24,8
+    LTEXT           "d(1)",IDC_STATIC,168,162,13,8
+    LTEXT           "d(2)",IDC_STATIC,252,162,13,8
+    LTEXT           "d(3)",IDC_STATIC,168,180,13,8
+    LTEXT           "d(4)",IDC_STATIC,252,180,13,8
+    GROUPBOX        "Job",IDC_STATIC,150,6,282,228
+    LTEXT           "Alfa",IDC_STATIC,336,82,13,8
+    LTEXT           "Beta",IDC_STATIC,336,102,16,8
+    LTEXT           "N·zev",IDC_ST_INDEX,210,24,24,8
+    LTEXT           "Index jobu",IDC_STATIC,168,24,42,8
+    LTEXT           "Lam1",IDC_STATIC,336,143,18,8
+    LTEXT           "Lam2",IDC_STATIC,336,162,18,8
+    LTEXT           "Lam3",IDC_STATIC,336,180,18,8
+    GROUPBOX        "TermÌn dokonËenÌ",IDC_STATIC,162,144,162,54
+    GROUPBOX        "V·hy",IDC_STATIC,330,126,90,72
+    GROUPBOX        "Koeficienty",IDC_STATIC,330,60,90,60
+    CONTROL         "",IDC_ST_BITMAP,"Static",SS_BITMAP | SS_CENTERIMAGE,162,
+                    66,162,72
+    EDITTEXT        IDC_ED_LAMBDA3,366,174,40,14,ES_AUTOHSCROLL
+END
+
+IDD_MACHINEDLG DIALOGEX 0, 0, 400, 126
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "⁄prava stroj˘"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LB_MACHINE,24,12,78,96,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&P¯idat",IDC_BT_ADD,114,72,50,16
+    PUSHBUTTON      "&Odebrat",IDC_BT_REMOVE,114,96,50,16
+    EDITTEXT        IDC_ED_NAME,258,42,120,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Upravit",IDC_BT_CHANGE,330,72,50,16
+    CONTROL         "&Color",IDC_CRBT_MACHINE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,270,72,50,16
+    DEFPUSHBUTTON   "OK",IDOK,330,96,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,270,96,50,16
+    GROUPBOX        "Seznam stroj˘",IDC_STATIC,6,0,168,120
+    GROUPBOX        "Stroj",IDC_STATIC,180,0,216,120
+    LTEXT           "N·zev stroje",IDC_STATIC,192,48,40,8
+    LTEXT           "Index stroje",IDC_STATIC,192,24,37,8
+    LTEXT           "Index stroje",IDC_ST_INDEX,258,24,37,8
+    CONTROL         "",IDC_ST_BITMAP,"Static",SS_BITMAP,120,18,15,13
+END
+
+IDD_PROCESSDLG DIALOGEX 0, 0, 412, 265
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "⁄prava operacÌ"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_PROCESSNAME,246,102,150,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PT1,210,156,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PT2,210,174,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PT3,210,192,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PT4,210,211,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancel",IDCANCEL,282,234,50,16
+    DEFPUSHBUTTON   "OK",IDOK,342,234,50,16
+    LISTBOX         IDC_LB_PROCESS,24,30,102,186,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&N",IDC_BT_UP,138,84,13,42,BS_ICON
+    PUSHBUTTON      "&D",IDC_BT_DOWN,138,126,13,42,BS_ICON
+    PUSHBUTTON      "&P¯idat",IDC_BT_ADD,86,228,50,16
+    PUSHBUTTON      "&Odebrat",IDC_BT_REMOVE,24,228,50,16
+    PUSHBUTTON      "&L",IDC_BT_LEFT,240,54,48,14,BS_ICON
+    PUSHBUTTON      "&R",IDC_BT_RIGHT,294,54,48,14,BS_ICON
+    GROUPBOX        "Seznam operacÌ",IDC_STATIC,6,6,156,252
+    GROUPBOX        "Job",IDC_STATIC,168,6,234,66
+    LTEXT           "Index jobu",IDC_STATIC,186,18,34,8
+    LTEXT           "N·zev jobu",IDC_STATIC,186,36,37,8
+    GROUPBOX        "Operace",IDC_STATIC,168,78,234,180
+    LTEXT           "Index operace",IDC_STATIC,186,90,46,8
+    LTEXT           "N·zev operace",IDC_STATIC,186,108,50,8
+    LTEXT           "»as zpracov·nÌ ",IDC_STATIC,186,144,52,8
+    LTEXT           "a(1)",IDC_STATIC,186,163,13,8
+    LTEXT           "a(2)",IDC_STATIC,186,180,13,8
+    LTEXT           "a(3)",IDC_STATIC,186,198,13,8
+    LTEXT           "a(4)",IDC_STATIC,186,216,13,8
+    LTEXT           "Static",IDC_ST_JOBINDEX,252,18,54,8
+    LTEXT           "Static",IDC_ST_JOBNAME,252,36,138,8
+    LTEXT           "Static",IDC_ST_PROCESSINDEX,246,90,54,8
+    PUSHBUTTON      "&Upravit",IDC_BT_CHANGEPROCESS,342,210,50,16
+    CONTROL         "",IDC_ST_BITMAP,"Static",SS_BITMAP | SS_CENTERIMAGE,258,
+                    144,138,60
+    LTEXT           "Stroj operace",IDC_STATIC,186,126,43,8
+    COMBOBOX        IDC_CB_MACHINE,246,126,150,30,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_PROJECTDLG DIALOGEX 0, 0, 226, 114
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Projekt"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_PROJECTNAME,90,18,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_MAKER,90,36,84,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,168,90,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,108,90,50,16
+    GROUPBOX        " Projekt ",IDC_STATIC,6,0,216,78
+    LTEXT           "N·zev projektu",IDC_STATIC,24,18,49,8
+    LTEXT           "Vytvo¯il",IDC_STATIC,24,36,24,8
+    LTEXT           "Datum vytvo¯enÌ",IDC_STATIC,24,54,54,8
+    LTEXT           "Static",IDC_ST_DATE,90,54,84,8
+END
+
+IDD_CONVEXPDLG DIALOGEX 0, 0, 412, 234
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Konvergence metod"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_SOLVECOUNT,174,18,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_SOLVETIME,174,36,40,14,ES_AUTOHSCROLL
+    CONTROL         "PouûÌt vöechna dostupn· kritÈria",IDC_CB_ALLCRIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,36,66,119,10
+    PUSHBUTTON      "&KritÈrium",IDC_BT_CRITERION,36,90,50,16
+    PUSHBUTTON      "Param. SA",IDC_BT_PARAMSA,36,114,50,16
+    PUSHBUTTON      "Param. GA",IDC_BT_PARAMGA,90,114,50,16
+    DEFPUSHBUTTON   "V˝poËet",IDC_BT_SOLVE,168,114,50,16
+    DEFPUSHBUTTON   "OK",IDOK,336,204,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,264,204,50,16
+    LTEXT           "»as jednoho v˝poËtu",IDC_STATIC,36,42,68,8
+    LTEXT           "PoËet v˝poËt˘ pro kaûdou metodu",IDC_STATIC,36,24,110,8
+    GROUPBOX        "NastavenÌ parametr˘ v˝poËtu",IDC_STATIC,6,6,228,138
+    GROUPBOX        "Pr˘bÏh v˝poË˘",IDC_STATIC,6,150,228,78
+    LTEXT           "Metoda",IDC_STATIC,30,198,36,8
+    CONTROL         "",IDC_PR_PART,"msctls_progress32",WS_BORDER,252,126,144,
+                    12
+    LTEXT           "Celkov˝ pr˘bÏh",IDC_STATIC,252,150,60,8
+    LTEXT           "KritÈrium",IDC_STATIC,246,24,42,8
+    LTEXT           "Aktu·lnÌ v˝poËet",IDC_STATIC,252,114,72,8
+    CONTROL         "",IDC_PR_ALL,"msctls_progress32",WS_BORDER,252,162,144,
+                    12
+    LTEXT           "",IDC_ST_CRITERION,252,36,144,48
+    LTEXT           "SimulovanÈ ûÌh·nÌ",IDC_STATIC,108,198,59,8
+    LTEXT           "Genetick˝ algoritmus",IDC_STATIC,108,210,66,8
+    LTEXT           "---------->",IDC_ST_ARROW1,72,198,25,8
+    LTEXT           "---------->",IDC_ST_ARROW2,72,210,25,8
+    LTEXT           "Varianta",IDC_STATIC,30,168,36,8
+    LTEXT           "---------->",IDC_ST_ARROW3,72,168,25,8
+    LTEXT           "Varianta MAX",IDC_STATIC,108,168,44,8
+    LTEXT           "Varianta SUMA",IDC_STATIC,108,180,50,8
+    LTEXT           "---------->",IDC_ST_ARROW4,72,180,25,8
+    GROUPBOX        "Pr˘bÏh v˝poËtu",IDC_STATIC,240,6,168,222
+END
+
+IDD_CRITEXP DIALOGEX 0, 0, 238, 265
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Srovn·nÌ kritÈriÌ"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_ITERCOUNT,72,18,40,14,ES_AUTOHSCROLL
+    CONTROL         "SimulovanÈ ûÌh·nÌ",IDC_RB_METHOD_SA,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,54,74,10
+    CONTROL         "Genetick˝ algoritmus",IDC_RB_METHOD_GA,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,66,81,10
+    DEFPUSHBUTTON   "V˝poËet",ID_SOLVE,174,210,50,16
+    DEFPUSHBUTTON   "OK",IDOK,174,234,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,114,234,50,16
+    GROUPBOX        "NastavenÌ ¯ÌdÌcÌch parametr˘",IDC_STATIC,6,6,228,252
+    LTEXT           "PoËet iteracÌ",IDC_STATIC,18,24,41,8
+    CONTROL         "",IDC_PR_PART,"msctls_progress32",WS_BORDER,18,162,204,
+                    12
+    LTEXT           "Pr˘bÏh podle aktu·lnÌho kriteria",IDC_STATIC,18,150,101,
+                    8
+    LTEXT           "Aktu·lnÌ urËujÌcÌ kritÈrium",IDC_STATIC,18,84,80,8
+    LTEXT           "Static",IDC_ST_CRITERION,18,97,204,42
+    LTEXT           "PouûÌt metodu",IDC_STATIC,18,42,46,8
+    CONTROL         "",IDC_PR_ALL,"msctls_progress32",WS_BORDER,18,192,204,
+                    12
+    LTEXT           "Celkov˝ Ëas v˝poËtu",IDC_STATIC,18,180,67,8
+END
+
+IDD_CONVERTDLG DIALOGEX 0, 0, 220, 180
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NastavenÌ parametr˘ konverze"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_DDCOEF,144,24,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PTCOEF,144,42,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_JOBCOEF,144,102,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_MACHINECOEF,144,120,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,162,162,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,102,162,50,16
+    GROUPBOX        "P¯evod na fuzzy ËÌslo",IDC_STATIC,6,6,210,66
+    GROUPBOX        "AutomatickÈ generov·nÌ termÌn˘ dokonËenÌ",IDC_STATIC,6,
+                    84,210,66
+    LTEXT           "Koeficient pro termÌny dokonËenÌ",IDC_STATIC,18,30,105,
+                    8
+    LTEXT           "Koeficient pro doby trv·nÌ operacÌ",IDC_STATIC,18,48,
+                    108,8
+    LTEXT           "Koeficient vlivu poËtu stroj˘",IDC_STATIC,18,126,120,8
+    LTEXT           "Koeficient vlivu poËtu job˘",IDC_STATIC,18,108,84,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 321
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_GADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 351
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 263
+    END
+
+    IDD_CRITERIADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_JOBDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 429
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_MACHINEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_PROCESSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 405
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_PROJECTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_CONVEXPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 405
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 227
+    END
+
+    IDD_CRITEXP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_CONVERTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ico\\FJSSM.ico"
+IDI_DOWN                ICON                    "res\\ico\\down.ico"
+IDI_RIGHT               ICON                    "res\\ico\\right.ico"
+IDI_LEFT                ICON                    "res\\ico\\left.ico"
+IDI_UP                  ICON                    "res\\ico\\up.ico"
+IDR_NewProjectTYPE      ICON                    "res\\ico\\FJSSMDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGO_TOOLBAR        BITMAP                  "res\\bmp\\logo_toolbar.bmp"
+IDB_VUTLOGO_ABOUT_CREDITS BITMAP                  "res\\bmp\\vutlogo_about_credits.bmp"
+IDB_LOGO_ABOUT_CREDIT   BITMAP                  "res\\Bmp\\logo_about_credits.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\bmp\\Toolbar.bmp"
+IDB_LOGO_DESKTOP        BITMAP                  "res\\Bmp\\logo_desktop.bmp"
+IDB_SPLASH              BITMAP                  "res\\bmp\\logo_splash.bmp"
+IDB_MACHINEDLG          BITMAP                  "res\\bmp\\machinedlg.bmp"
+IDB_JOBDLG              BITMAP                  "res\\bmp\\jobdlg.bmp"
+IDB_PROCESSDLG          BITMAP                  "res\\bmp\\processdlg.bmp"
+IDB_LOGO_ABOUT          BITMAP                  "res\\bmp\\logo_about2.bmp"
+IDB_BIRD_ABOUT_CREDITS  BITMAP                  "res\\Bmp\\bird_about_credits.bmp"
+IDR_MAINFRAME2          BITMAP                  "res\\bmp\\toolbar2.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_IMPORT
+    BUTTON      ID_FILE_EXPORT
+    SEPARATOR
+    BUTTON      ID_EDIT_PROJECT
+    BUTTON      ID_EDIT_MACHINE
+    BUTTON      ID_EDIT_JOB
+    BUTTON      ID_EDIT_PROCESS
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_VIEW_PROJECT
+    BUTTON      ID_VIEW_MACHINE
+    BUTTON      ID_VIEW_JOB
+    BUTTON      ID_VIEW_PROCESS
+    SEPARATOR
+    BUTTON      ID_CONVERT_CRISPDD
+    BUTTON      ID_CONVERT_CRISPPT
+    BUTTON      ID_CONVERT_FUZZYDD
+    BUTTON      ID_CONVERT_FUZZYPT
+    SEPARATOR
+    BUTTON      ID_CONVERT_DEFAULTDD
+    BUTTON      ID_CONVERT_OPTION
+END
+
+IDR_MAINFRAME2 TOOLBAR  16, 16
+BEGIN
+    BUTTON      ID_COMPUTE_SA
+    BUTTON      ID_COMPUTE_GA
+    SEPARATOR
+    BUTTON      ID_COMPUTE_CONVEXP
+    BUTTON      ID_COMPUTE_CRITEXP
+    SEPARATOR
+    BUTTON      ID_COMPUTE_CRITERION
+    SEPARATOR
+    BUTTON      ID_RESULT_SOLVE
+    BUTTON      ID_RESULT_GANT
+    SEPARATOR
+    BUTTON      ID_RESULT_RUN
+    BUTTON      ID_RESULT_CONVEXP
+    SEPARATOR
+    BUTTON      ID_RESULT_CRIT_ARE
+    BUTTON      ID_RESULT_CRIT_SOARE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\FJSSM.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "FJSS Maker\n\nFJSS Project\nFJSSM Files (*.jss)\n.jss\nFJSSM.Document\nFJSSM.Document"
+    IDS_LOGO                "Domovsk· str·nka programu FJSS Maker"
+    ID_FILE_IMPORT          "Importuje projekt ze struktury .csv\nImportovat"
+    ID_VIEW_PROJECT         "RychlÈ prohlÌûenÌ parametr˘ projektu\nProhlÌûenÌ projektu"
+    ID_CONVERT_CRISPDD      "Konverze na problÈm s deterministick˝mi termÌny dokonËenÌ\nDeterministickÈ termÌny dokonËenÌ"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_JOB             "RychlÈ prohlÌûenÌ job˘\nProhlÌûenÌ job˘"
+    ID_VIEW_MACHINE         "RychlÈ prohlÌûenÌ stroj˘\nProhlÌûenÌ stroj˘"
+    ID_VIEW_PROCESS         "RychlÈ prohlÌûenÌ operacÌ\nProhlÌûenÌ operacÌ"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_IMPORT_ERROR        "Chyba p¯i importu dat, patrnÏ nekompaktibilnÌ form·t souboru !!!"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "FJSS Maker"
+    AFX_IDS_IDLEMESSAGE     "Pro n·povÏdu stiskni  F1"
+    AFX_IDS_HELPMODEMESSAGE "Vyber objekt pro kter˝ poûadujeö n·povÏdu\nInteraktivnÌ n·povÏda"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Vytvo¯Ì nov˝ projekt\nNov˝ projekt"
+    ID_FILE_OPEN            "Otev¯e existujÌcÌ projekt\nOtev¯Ìt"
+    ID_FILE_CLOSE           "Zav¯e aktivnÌ projekt\nZav¯Ìt"
+    ID_FILE_SAVE            "UloûÌ aktu·lnÌ projekt\n Uloûit"
+    ID_FILE_SAVE_AS         "UloûÌ aktu·lnÌ projekt s nov˝m jmÈnem souboru\n Uloûit jako..."
+    ID_FILE_PAGE_SETUP      "NastavenÌ str·nky\nNastavit vlastnosti str·nky"
+    ID_FILE_PRINT_SETUP     "NastavenÌ tisk·rny\nNastavenÌ tisk·rny"
+    ID_FILE_PRINT           "Tisk aktu·lnÌho projektu\nTisk projektu"
+    ID_FILE_PRINT_PREVIEW   "ZobrazÌ n·hled p¯ed tiskem\nN·hled p¯ed tiskem"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_PROJECT         "Editace zakladnÌch ˙daj˘ o projektu\nEditace projektu"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_CONVERT_CRISPPT      "Konverze na problÈm s deterministick˝mi Ëasy operacÌ\nDeterministickÈ Ëasy operacÌ"
+    ID_CONVERT_FUZZYDD      "Konverze na problÈm s fuzzy termÌny dokonËenÌ\nFuzzy termÌny dokonËenÌ"
+    ID_CONVERT_FUZZYPT      "Konverze na problÈm s fuzzy Ëasy operacÌ\nFuzzy Ëasy operacÌ"
+    ID_FILE_EXPORT          "Exportuje projekt do struktury .csv\nExportovat"
+    ID_COMPUTE_CRITERION    "V˝bÏr kriteria ˙ËelovÈ funkce\nV˝bÏr kritÈria"
+    ID_CONVERT_DEFAULTDD    "AutomatickÈ nastavenÌ termÌn˘ dokonËenÌ\nAutomatickÈ termÌny dokonËenÌ"
+    ID_EDIT_MACHINE         "Editace t˝kajÌcÌ se stroj˘\nEditace stroj˘"
+    ID_EDIT_JOB             "Editace t˝kajÌcÌ se job˘\nEditace job˘"
+    ID_EDIT_PROCESS         "Editace t˝kajÌcÌ se operacÌ\nEditace operacÌ"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_RESULT_SOLVE         "Report rozvrhu vybranÈ metody\nReport rozvrhu"
+    ID_RESULT_GANT          "Gant˘v graf rozvrhu vybranÈ metody\nGant˘v graf"
+    ID_RESULT_RUN           "Graf pr˘bÏhu v˝poËtu\nPr˘bÏh v˝poËtu"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_COMPUTE_SA           "Hled·nÌ optim·lnÌho rozvrhu metodou simulovanÈho ûÌh·nÌ\nSimulovanÈ ûÌh·nÌ"
+    ID_COMPUTE_GA           "Hled·nÌ optim·lnÌho rozvrhu metodou genetickÈho algoritmu\nGenetick˝ algoritmus"
+    ID_COMPUTE_CONVEXP      "Multiv˝poËet pro zjiöùov·nÌ konvergence jednotliv˝ch metod\nV˝poËet rychlosti konvergence"
+    ID_COMPUTE_CRITEXP      "Multiv˝poËet pro porovn·v·nÌ kvality jednotliv˝ch kritÈriÌ\nV˝poËet kvality kritÈriÌ"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_CONVERT_OPTION       "NastavenÌ koeficient˘ konverze\nNastavenÌ konverze"
+    ID_RESULT_CONVEXP       "V˝sledky multiv˝poËtu konvergence\nV˝sledky konvergence"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_RESULT_SA            "Budou zobrazeny v˝sledky pro simulovanÈ ûÌh·nÌ\nV˝sledky pro simulovanÈ ûÌh·nÌ"
+    ID_RESULT_GA            "Budou zobrazeny v˝sledky pro genetick˝ algoritmus\nV˝sledky pro genetick˝ algoritmus"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_RESULT_CRIT_ITERATION 
+                            "ZobrazÌ iterace zÌsk·ne multiv˝poËtem pro srovn·nÌ kritÈriÌ\nIterace v˝poËtu"
+    ID_RESULT_CRIT_RE       "ZobrazÌ relativnÌ chyby iteracÌ\nRelativnÌ chyby"
+    ID_RESULT_CRIT_ARE      "ZobrazÌ pr˘mÏrnÈ hodnoty relativnÌch chyb\nPr˘mÏry relativnÌch cyb"
+    ID_RESULT_CRIT_SOARE    "ZobrazÌ graf st¯ednÌch hodnot pr˘mÏr˘ relativnÌch chyb do grafu\nSt¯ednÌ hodnoty pr˘mÏr˘ relativnÌch chyb"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "ZobrazÌ informace o programu\nO programu"
+    ID_APP_EXIT             "UkonËÌ aplikaci s dotazem na uloûenÌ neuloûenÈho projektu\nUkonËit"
+    ID_HELP_INDEX           "Seznam poloûek n·povÏdy\nPoloûky n·povÏdy"
+    ID_HELP_FINDER          "TÈmatick· n·povÏda\nTÈmatick· n·povÏda"
+    ID_HELP_USING           "ZobrazÌ instrukce, jak pouûÌvat n·povÏdu"
+    ID_CONTEXT_HELP         "N·povÏda v souvislostech"
+    ID_HELP                 "N·povÏda\nN·povÏda"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE2       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE3       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE4       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE5       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE6       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE7       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE8       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE9       "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE10      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE11      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE12      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE13      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE14      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE15      "Otev¯e tento projekt"
+    ID_FILE_MRU_FILE16      "Otev¯e tento projekt"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "P¯epnutÌ do dalöÌho okna"
+    ID_PREV_PANE            "P¯epnutÌ do p¯edchozÌho okna"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "RozdÏlÌ okna do panel˘\nRozdÏlit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Vymaz·nÌ v˝bÏru"
+    ID_EDIT_CLEAR_ALL       "Vymaz·nÌ vöeho"
+    ID_EDIT_COPY            "UloûenÌ do schr·nky\n UloûenÌ do schr·nky"
+    ID_EDIT_CUT             "OdstranÏnÌ a umÌstÏnÌ do schr·nky\n Odstranit"
+    ID_EDIT_FIND            "Najde specifikovan˝ text\nNajÌt"
+    ID_EDIT_PASTE           "VloûÌ obsah schr·nky\nVloûit"
+    ID_EDIT_REPEAT          "Opakuje poslednÌ akci\nOpakuj"
+    ID_EDIT_REPLACE         "NahrazenÌ textu jin˝m textem\nNahradit"
+    ID_EDIT_SELECT_ALL      "Vybere vöechno\nVybrat vöe"
+    ID_EDIT_UNDO            "Vr·tÌ poslednÌ akci\nObnovit"
+    ID_EDIT_REDO            "Provede p¯edchozÌ poslednÌ akci\nVr·tit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Zobrazit nebo vypnout panel n·stroj˘"
+    ID_VIEW_STATUS_BAR      "Zobrazit nebo vypnout stavov˝ ¯·dek"
+    ID_VIEW_AUTOARRANGE     "Se¯adit ikony do m¯Ìûky"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "ZmÏnit velikost okna"
+    AFX_IDS_SCMOVE          "ZmÏnit pozici okna"
+    AFX_IDS_SCMINIMIZE      "Minimalizovat okno"
+    AFX_IDS_SCMAXIMIZE      "Maximalizovat okno"
+    AFX_IDS_SCNEXTWINDOW    "P¯epnout se do dalöÌho dokumentu"
+    AFX_IDS_SCPREVWINDOW    "P¯epnout se do p¯edchozÌho dokumentu"
+    AFX_IDS_SCCLOSE         "Zav¯Ìt aktivnÌ dokument s dotazem uloûenÌ"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Obnovit okno v norm·lnÌ velikosti"
+    AFX_IDS_SCTASKLIST      "Aktivovat seznam ˙loh"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Zav¯Ìt n·hled p¯ed tiskem\nZav¯Ìt n·hled"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_SMALLICON       "ZobrazÌ poloûky jako malÈ ikony"
+    ID_VIEW_LARGEICON       "ZobrazÌ poloûky jako velkÈ ikony"
+    ID_VIEW_LIST            "ZobrazÌ poloûky jako seznam"
+    ID_VIEW_DETAILS         "ZobrazÌ poloûky jako seznam s podrobnostmi"
+    ID_VIEW_LINEUP          "Se¯adit ikony do m¯Ìûky"
+    ID_VIEW_BYNAME          "Se¯adit poloûky podle abecedy"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&Projekt"
+    BEGIN
+        MENUITEM "&Nov˝\tCtrl+N",               ID_FILE_NEW
+        MENUITEM "&Otev¯Ìt...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "&Importovat...\tCtrl+I",      ID_FILE_IMPORT
+        MENUITEM "&Uloûit\tCtrl+S",             ID_FILE_SAVE
+        MENUITEM "Uloûit &jako...",             ID_FILE_SAVE_AS
+        MENUITEM "&Exportovat\tCtrl+E",         ID_FILE_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "U&konËenÌ",                   ID_APP_EXIT
+    END
+    POPUP "&⁄pravy"
+    BEGIN
+        MENUITEM "&Projekt",                    ID_EDIT_PROJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Stroje",                     ID_EDIT_MACHINE
+        MENUITEM "&Joby",                       ID_EDIT_JOB
+        MENUITEM SEPARATOR
+        MENUITEM "&Operace",                    ID_EDIT_PROCESS
+        MENUITEM SEPARATOR
+        MENUITEM "Odstranit\tCtrl+X",           ID_EDIT_CUT
+        MENUITEM "KopÌrovat\tCtrl+C",           ID_EDIT_COPY
+        MENUITEM "Vloûit\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Vybrat vöe\tCtrl+A",          57642
+    END
+    POPUP "&Konverze"
+    BEGIN
+        MENUITEM "&Crisp DD",                   ID_CONVERT_CRISPDD
+        MENUITEM "C&risp PT",                   ID_CONVERT_CRISPPT
+        MENUITEM SEPARATOR
+        MENUITEM "&Fuzzy DD",                   ID_CONVERT_FUZZYDD
+        MENUITEM "F&uzzy PT",                   ID_CONVERT_FUZZYPT
+        MENUITEM SEPARATOR
+        MENUITEM "&Default DD",                 ID_CONVERT_DEFAULTDD
+        MENUITEM SEPARATOR
+        MENUITEM "&NastavenÌ ",                 ID_CONVERT_OPTION
+    END
+    POPUP "P&rohlÌûenÌ"
+    BEGIN
+        MENUITEM "&Projekt",                    ID_VIEW_PROJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Joby",                       ID_VIEW_JOB
+        MENUITEM "&Stroje",                     ID_VIEW_MACHINE
+        MENUITEM SEPARATOR
+        MENUITEM "&Operace",                    ID_VIEW_PROCESS
+    END
+    POPUP "&V˝poËet"
+    BEGIN
+        MENUITEM "&SimulovanÈ ûÌh·nÌ\tCtrl+H",  ID_COMPUTE_SA
+        MENUITEM "&Genetick˝ algoritmus\tCtrl+G", ID_COMPUTE_GA
+        MENUITEM SEPARATOR
+        MENUITEM "&Konvergence metod",          ID_COMPUTE_CONVEXP
+        MENUITEM "&Srovn·nÌ kritÈriÌ",          ID_COMPUTE_CRITEXP
+        MENUITEM SEPARATOR
+        MENUITEM "&V˝bÏr kritÈria",             ID_COMPUTE_CRITERION
+    END
+    POPUP "V˝&sledky"
+    BEGIN
+        MENUITEM "&Rozvrh\tCtrl+R",             ID_RESULT_SOLVE
+        MENUITEM "&Gantt˘v graf",               ID_RESULT_GANT
+        MENUITEM "&Pr˘bÏh v˝poËtu",             ID_RESULT_RUN
+        MENUITEM SEPARATOR
+        MENUITEM "&Konvergence",                ID_RESULT_CONVEXP
+        POPUP "Kri&tÈria"
+        BEGIN
+            MENUITEM "&Iterace v˝poËtu",            ID_RESULT_CRIT_ITERATION
+            MENUITEM "&RelativnÌ chyby",            ID_RESULT_CRIT_RE
+            MENUITEM "&Pr˘mÏr relativnÌch chyb",    ID_RESULT_CRIT_ARE
+            MENUITEM "&CelkovÈ relativnÌ chyby",    ID_RESULT_CRIT_SOARE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&SimulovanÈ ûÌh·nÌ",          ID_RESULT_SA
+        MENUITEM "&Genetick˝ algoritmus",       ID_RESULT_GA
+    END
+    POPUP "&N·povÏda"
+    BEGIN
+        MENUITEM "&N·povÏda\tF1",               57667
+        MENUITEM SEPARATOR
+        MENUITEM "&O Programu",                 57664
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "G",            ID_COMPUTE_GA,          VIRTKEY, CONTROL, NOINVERT
+    "H",            ID_COMPUTE_SA,          VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_FILE_EXPORT,         VIRTKEY, CONTROL, NOINVERT
+    "I",            ID_FILE_IMPORT,         VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "R",            ID_RESULT_SOLVE,        VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECT_ALL,     VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "FJSSM.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "FJSSM.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\FJSSM.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

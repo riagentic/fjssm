@@ -1,0 +1,156 @@
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=FJSSM.chm
+Contents file=FJSSM.hhc
+Index file=FJSSM.hhk
+Default topic=main_index.htm
+Display compile progress=No
+Full-text search=Yes
+Language=0x409 Angliètina (Spojené státy)
+
+
+[FILES]
+hid_app_about.htm
+hid_app_exit.htm
+
+hid_file_mru_file1.htm
+hid_file_new.htm
+hid_file_open.htm
+hid_file_import.htm
+hid_file_save.htm
+hid_file_save_as.htm
+hid_file_export.htm
+
+hid_edit_project.htm
+hid_edit_job.htm
+hid_edit_machine.htm
+hid_edit_process.htm
+hid_edit_copy.htm
+hid_edit_cut.htm
+hid_edit_paste.htm
+
+hid_convert_crispdd.htm
+hid_convert_crisppt.htm
+hid_convert_fuzzydd.htm
+hid_convert_fuzzypt.htm
+hid_convert_defaultdd.htm
+hid_convert_option.htm
+
+hid_view_project.htm
+hid_view_job.htm
+hid_view_machine.htm
+hid_view_process.htm
+
+hid_compute_sa.htm
+hid_compute_ga.htm
+hid_compute_convexp.htm
+hid_compute_critexp.htm
+hid_compute_criterion.htm
+
+hid_result_solve.htm
+hid_result_gant.htm
+hid_result_run.htm
+hid_result_sa.htm
+hid_result_ga.htm
+
+hid_result_crit_iteration.htm
+hid_result_crit_re.htm
+hid_result_crit_are.htm
+hid_result_crit_soare.htm
+
+hid_help_index.htm
+
+main_index.htm
+menu_file.htm
+menu_edit.htm
+menu_convert.htm
+menu_view.htm
+menu_compute.htm
+menu_result.htm
+menu_help.htm
+
+[ALIAS]
+HIDR_MAINFRAME = main_index.htm
+
+hid_app_about	=	hid_app_about.htm
+hidd_aboutbox = hid_app_about.htm
+hid_app_exit	=	hid_app_exit.htm
+
+hid_file_mru_file1	=	hid_file_mru_file1.htm
+hid_file_new	=	hid_file_new.htm
+hid_file_open	=	hid_file_open.htm
+hid_file_import	=	hid_file_import.htm
+hid_file_save	=	hid_file_save.htm
+hid_file_save_as	=	hid_file_save_as.htm
+hid_file_export	=	hid_file_export.htm
+
+hid_edit_project	=	hid_edit_project.htm
+hid_edit_job	=	hid_edit_job.htm
+hid_edit_machine	=	hid_edit_machine.htm
+hid_edit_process	=	hid_edit_process.htm
+hid_edit_copy	=	hid_edit_copy.htm
+hid_edit_cut	=	hid_edit_cut.htm
+hid_edit_paste	=	hid_edit_paste.htm
+
+hidd_projectdlg	=	hid_edit_project.htm
+hidd_jobdlg	=	hid_edit_job.htm
+hidd_machinedlg	=	hid_edit_machine.htm
+hidd_processdlg	=	hid_edit_process.htm
+
+hid_convert_crispdd	=	hid_convert_crispdd.htm
+hid_convert_crisppt	=	hid_convert_crisppt.htm
+hid_convert_fuzzydd	=	hid_convert_fuzzydd.htm
+hid_convert_fuzzypt	=	hid_convert_fuzzypt.htm
+hid_convert_defaultdd	=	hid_convert_defaultdd.htm
+hid_convert_option	=	hid_convert_option.htm
+hidd_convertdlg =	hid_convert_option.htm
+
+hid_view_project	=	hid_view_project.htm
+hid_view_job	=	hid_view_job.htm
+hid_view_machine	=	hid_view_machine.htm
+hid_view_process	=	hid_view_process.htm
+
+hid_compute_sa	=	hid_compute_sa.htm
+hid_compute_ga	=	hid_compute_ga.htm
+hid_compute_convexp	=	hid_compute_convexp.htm
+hid_compute_critexp	=	hid_compute_critexp.htm
+hid_compute_criterion	=	hid_compute_criterion.htm
+
+hidd_sadlg	=	hid_compute_sa.htm
+hidd_gadlg	=	hid_compute_ga.htm
+hidd_convexpdlg	=	hid_compute_convexp.htm
+hidd_critexpdlg	=	hid_compute_critexp.htm
+hidd_criteriadlg	=	hid_compute_criterion.htm
+
+hid_result_solve	=	hid_result_solve.htm
+hid_result_gant	=	hid_result_gant.htm
+hid_result_run	=	hid_result_run.htm
+hid_result_sa	=	hid_result_sa.htm
+hid_result_ga	=	hid_result_ga.htm
+
+hid_result_crit_iteration	=	hid_result_crit_iteration.htm
+hid_result_crit_re	=	hid_result_crit_re.htm
+hid_result_crit_are	=	hid_result_crit_are.htm
+hid_result_crit_soare	=	hid_result_crit_soare.htm
+
+
+hid_help_finder	=	hid_help_index.htm
+
+main_index	=	main_index.htm
+menu_file	=	menu_file.htm
+menu_edit	=	menu_edit.htm
+menu_convert	=	menu_convert.htm
+menu_view	=	menu_view.htm
+menu_compute	=	menu_compute.htm
+menu_result	=	menu_result.htm
+menu_help	=	menu_help.htm
+
+
+[MAP]
+#include HTMLDefines.h
+
+[TEXT POPUPS]
+HTMLDefines.h
+
+[INFOTYPES]

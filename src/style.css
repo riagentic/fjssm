@@ -1,0 +1,438 @@
+/* ── FJSSM — Windows Classic (Win2000-era MFC) chrome ─────────────────── */
+
+:root {
+  --btnface: #d4d0c8;
+  --btnhighlight: #ffffff;
+  --btnlight: #e8e4dc;
+  --btnshadow: #808080;
+  --btndkshadow: #404040;
+  --windowbg: #ffffff;
+  --windowtext: #000000;
+  --graytext: #808080;
+  --hilite: #0a246a;
+  --hilitetext: #ffffff;
+  --appworkspace: #808080;
+  --menubar: #d4d0c8;
+  --tooltipbg: #ffffe1;
+  --font: 11px "Tahoma", "MS Sans Serif", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font: var(--font);
+  background: var(--btnface);
+  color: var(--windowtext);
+  cursor: default;
+  user-select: none;
+  -webkit-font-smoothing: none;
+}
+
+/* 3D bevels */
+.raised {
+  border-top: 1px solid var(--btnhighlight);
+  border-left: 1px solid var(--btnhighlight);
+  border-right: 1px solid var(--btndkshadow);
+  border-bottom: 1px solid var(--btndkshadow);
+  box-shadow:
+    inset 1px 1px 0 var(--btnlight),
+    inset -1px -1px 0 var(--btnshadow);
+}
+.raised-thin {
+  border-top: 1px solid var(--btnhighlight);
+  border-left: 1px solid var(--btnhighlight);
+  border-right: 1px solid var(--btnshadow);
+  border-bottom: 1px solid var(--btnshadow);
+}
+.sunken {
+  border-top: 1px solid var(--btnshadow);
+  border-left: 1px solid var(--btnshadow);
+  border-right: 1px solid var(--btnhighlight);
+  border-bottom: 1px solid var(--btnhighlight);
+  box-shadow:
+    inset 1px 1px 0 var(--btndkshadow),
+    inset -1px -1px 0 var(--btnlight);
+}
+.sunken-thin {
+  border-top: 1px solid var(--btnshadow);
+  border-left: 1px solid var(--btnshadow);
+  border-right: 1px solid var(--btnhighlight);
+  border-bottom: 1px solid var(--btnhighlight);
+}
+
+/* ── App frame ── */
+.app-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.client-area {
+  flex: 1;
+  overflow: auto;
+  background: var(--appworkspace);
+  position: relative;
+}
+
+/* ── Menu bar ── */
+.menubar {
+  display: flex;
+  background: var(--menubar);
+  padding: 1px;
+  border-bottom: 1px solid var(--btnshadow);
+  position: relative;
+  z-index: 100;
+}
+.menubar-item {
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+.menubar-item:hover,
+.menubar-item.open {
+  background: var(--hilite);
+  color: var(--hilitetext);
+}
+.menubar-item u {
+  text-decoration: underline;
+}
+
+.menu-popup {
+  position: absolute;
+  top: 100%;
+  background: var(--btnface);
+  min-width: 170px;
+  padding: 1px;
+  z-index: 1000;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.35);
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 16px 3px 4px;
+  white-space: nowrap;
+  position: relative;
+}
+.menu-item .mi-icon {
+  width: 18px;
+  height: 16px;
+  flex: 0 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-item .mi-label {
+  flex: 1;
+}
+.menu-item .mi-accel {
+  margin-left: 24px;
+}
+.menu-item:hover:not(.disabled) {
+  background: var(--hilite);
+  color: var(--hilitetext);
+}
+.menu-item.disabled {
+  color: var(--graytext);
+  text-shadow: 1px 1px 0 var(--btnhighlight);
+}
+.menu-sep {
+  height: 0;
+  border-top: 1px solid var(--btnshadow);
+  border-bottom: 1px solid var(--btnhighlight);
+  margin: 3px 2px;
+}
+.menu-check {
+  font-size: 10px;
+  width: 14px;
+  text-align: center;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  background: var(--btnface);
+  padding: 2px;
+  gap: 0;
+  border-bottom: 1px solid var(--btnshadow);
+  box-shadow: inset 0 1px 0 var(--btnhighlight);
+}
+.tb-btn {
+  width: 23px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0;
+}
+.tb-btn:hover:not(:disabled) {
+  border-top: 1px solid var(--btnhighlight);
+  border-left: 1px solid var(--btnhighlight);
+  border-right: 1px solid var(--btnshadow);
+  border-bottom: 1px solid var(--btnshadow);
+}
+.tb-btn:active:not(:disabled),
+.tb-btn.down {
+  border-top: 1px solid var(--btnshadow);
+  border-left: 1px solid var(--btnshadow);
+  border-right: 1px solid var(--btnhighlight);
+  border-bottom: 1px solid var(--btnhighlight);
+}
+.tb-btn:disabled .tb-ico {
+  filter: grayscale(1) opacity(0.4);
+}
+.tb-sep {
+  width: 1px;
+  height: 20px;
+  margin: 0 3px;
+  border-left: 1px solid var(--btnshadow);
+  border-right: 1px solid var(--btnhighlight);
+}
+.tb-ico {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+/* ── Status bar ── */
+.statusbar {
+  display: flex;
+  gap: 2px;
+  background: var(--btnface);
+  padding: 2px 2px 2px 2px;
+  border-top: 1px solid var(--btnhighlight);
+  font-size: 11px;
+}
+.sb-pane {
+  padding: 1px 6px;
+  min-height: 16px;
+}
+.sb-pane.main {
+  flex: 1;
+}
+
+/* ── Dialogs ── */
+.dlg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dialog {
+  background: var(--btnface);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  min-width: 200px;
+}
+.dlg-title {
+  background: linear-gradient(90deg, #0a246a, #a6caf0);
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 4px 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dlg-title .dlg-close {
+  width: 16px;
+  height: 14px;
+  background: var(--btnface);
+  color: #000;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 12px;
+  text-align: center;
+  font-family: "Marlett", sans-serif;
+  padding: 0;
+}
+.dlg-body {
+  padding: 10px;
+}
+
+/* Group box */
+.groupbox {
+  border: 1px solid;
+  border-color: var(--btnshadow) var(--btnhighlight) var(--btnhighlight)
+    var(--btnshadow);
+  box-shadow: 1px 1px 0 var(--btnhighlight) inset, -1px -1px 0 var(--btnshadow);
+  outline: 1px solid var(--btnhighlight);
+  outline-offset: 0;
+  position: relative;
+  margin-top: 6px;
+  padding: 10px 8px 8px;
+}
+.groupbox > legend,
+.groupbox > .gb-label {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  background: var(--btnface);
+  padding: 0 3px;
+}
+
+/* ── Controls ── */
+button,
+.btn {
+  font: var(--font);
+  background: var(--btnface);
+  color: var(--windowtext);
+  border: 1px solid;
+  border-color: var(--btnhighlight) var(--btndkshadow) var(--btndkshadow)
+    var(--btnhighlight);
+  box-shadow:
+    inset 1px 1px 0 var(--btnlight),
+    inset -1px -1px 0 var(--btnshadow);
+  padding: 3px 12px;
+  min-width: 75px;
+  min-height: 23px;
+}
+button:active:not(:disabled) {
+  border-color: var(--btndkshadow) var(--btnhighlight) var(--btnhighlight)
+    var(--btndkshadow);
+  box-shadow:
+    inset 1px 1px 0 var(--btnshadow),
+    inset -1px -1px 0 var(--btnlight);
+  padding: 4px 11px 2px 13px;
+}
+button:disabled {
+  color: var(--graytext);
+  text-shadow: 1px 1px 0 var(--btnhighlight);
+}
+button.default {
+  outline: 1px solid var(--btndkshadow);
+}
+button:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  font: var(--font);
+  background: var(--windowbg);
+  color: var(--windowtext);
+  border: 1px solid;
+  border-color: var(--btnshadow) var(--btnhighlight) var(--btnhighlight)
+    var(--btnshadow);
+  box-shadow:
+    inset 1px 1px 0 var(--btndkshadow),
+    inset -1px -1px 0 var(--btnlight);
+  padding: 2px 3px;
+  user-select: text;
+}
+input:disabled,
+select:disabled {
+  background: var(--btnface);
+  color: var(--graytext);
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── MDI child window ── */
+.mdi-child {
+  position: absolute;
+  background: var(--btnface);
+  border: 1px solid;
+  border-color: var(--btnlight) var(--btndkshadow) var(--btndkshadow)
+    var(--btnlight);
+  box-shadow:
+    inset 1px 1px 0 var(--btnhighlight),
+    inset -1px -1px 0 var(--btnshadow);
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.mdi-title {
+  background: linear-gradient(90deg, #0a246a, #a6caf0);
+  color: #fff;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 2px 3px 2px 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mdi-title.inactive {
+  background: linear-gradient(90deg, #808080, #b5b5b5);
+}
+.mdi-title .flex {
+  flex: 1;
+}
+.mdi-body {
+  flex: 1;
+  background: var(--windowbg);
+  overflow: auto;
+  position: relative;
+}
+
+/* ── Grid (worksheet) ── */
+.grid {
+  border-collapse: collapse;
+  background: var(--windowbg);
+  user-select: none;
+}
+.grid th,
+.grid td {
+  border: 1px solid #c0c0c0;
+  padding: 1px 4px;
+  font: var(--font);
+  white-space: nowrap;
+}
+.grid th {
+  background: var(--btnface);
+  border: 1px solid;
+  border-color: var(--btnhighlight) var(--btnshadow) var(--btnshadow)
+    var(--btnhighlight);
+  font-weight: normal;
+  text-align: center;
+}
+.grid td.sel {
+  background: var(--hilite);
+  color: var(--hilitetext);
+}
+.grid td input {
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 0;
+  font: var(--font);
+}
+
+/* Scrollbars (classic) */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background: repeating-conic-gradient(#fff 0% 25%, #d4d0c8 0% 50%) 0 0 / 2px
+    2px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--btnface);
+  border: 1px solid;
+  border-color: var(--btnhighlight) var(--btndkshadow) var(--btndkshadow)
+    var(--btnhighlight);
+  box-shadow:
+    inset 1px 1px 0 var(--btnlight),
+    inset -1px -1px 0 var(--btnshadow);
+}
