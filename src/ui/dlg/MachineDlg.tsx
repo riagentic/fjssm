@@ -11,6 +11,7 @@ import {
 } from "./Dialog.tsx";
 import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
+import { t } from "../i18n.ts";
 
 export function MachineDlg() {
   const { local: sel, set: setSel } = useLocal(0);
@@ -30,7 +31,7 @@ export function MachineDlg() {
       <GroupBox label="Seznam strojů" x={6} y={0} w={168} h={120} />
       <GroupBox label="Stroj" x={180} y={0} w={216} h={120} />
       <select
-        aria-label="Seznam strojů"
+        aria-label={t("Seznam strojů")}
         size={8}
         style={{ ...dlu(24, 12, 78, 96) }}
         onInput={(e) => select((e.target as HTMLSelectElement).selectedIndex)}
@@ -49,7 +50,7 @@ export function MachineDlg() {
         x={114}
         y={72}
         onClick={async () => {
-          const newName = `Stroj${doc.project.nMachine + 1}`;
+          const newName = t("Stroj{0}", doc.project.nMachine + 1);
           const newIdx = doc.project.machines.length;
           await doc.addMachine(newName);
           setSel(newIdx);
@@ -65,7 +66,7 @@ export function MachineDlg() {
         onClick={async () => {
           if (
             !confirm(
-              "Opravdu chcete odstranit stroj včetně všech jemu přiřazených operací?",
+              t("Opravdu chcete odstranit stroj včetně všech jemu přiřazených operací?"),
             )
           ) return;
           const left = await doc.removeMachine(sel);

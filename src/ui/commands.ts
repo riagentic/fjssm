@@ -9,13 +9,17 @@ import { isAbleToSolve } from "../lib/project.ts";
 import { Project } from "../type/model.ts";
 import { downloadFile, pickFile } from "./fileio.ts";
 import { runCopy } from "./copy.ts";
+import { lang, setLang, t } from "./i18n.ts";
 
 const title = (): string => doc.project.name || "FJSS Maker";
 
 function confirmDiscard(): boolean {
   if (!doc.modified) return true;
   return confirm(
-    `Projekt ${title()} byl změněn.\nOpravdu chcete zahodit neuložené změny?`,
+    t(
+      "Projekt {0} byl změněn.\nOpravdu chcete zahodit neuložené změny?",
+      title(),
+    ),
   );
 }
 
@@ -28,16 +32,20 @@ function askForConvert(nType: 0 | 1 | 2 | 3): boolean {
     "FUZZY DOBAMI TRVÁNÍ OPERACÍ ?",
   ];
   return confirm(
-    `Opravdu chcete provést konverzi projektu na typ \n\ns  ${variants[nType]}`,
+    t(
+      "Opravdu chcete provést konverzi projektu na typ \n\ns  {0}",
+      t(variants[nType]!),
+    ),
   );
 }
 
 /** ShowConvertReport (FJSSMView.cpp:408-424) */
 function showConvertReport(): void {
   alert(
-    `Hotovo !!! \n\nAktuální typ projektu:   ${
-      strType(doc.project as Project)
-    }\t`,
+    t(
+      "Hotovo !!! \n\nAktuální typ projektu:   {0}\t",
+      strType(doc.project as Project, t),
+    ),
   );
 }
 
@@ -83,7 +91,9 @@ export const commands: Record<string, Command> = {
         await doc.load(project, file.name);
         view.showDesktop();
       } catch {
-        alert("Chyba při otevírání souboru, patrně nekompaktibilní formát !!!");
+        alert(
+          t("Chyba při otevírání souboru, patrně nekompaktibilní formát !!!"),
+        );
       }
     },
   },
@@ -100,7 +110,7 @@ export const commands: Record<string, Command> = {
         view.showDesktop();
       } catch {
         alert(
-          "Chyba při importu dat, patrně nekompaktibilní formát souboru !!!",
+          t("Chyba při importu dat, patrně nekompaktibilní formát souboru !!!"),
         );
       }
     },
@@ -109,7 +119,7 @@ export const commands: Record<string, Command> = {
     help: "Uloží aktuální projekt",
     tip: " Uložit",
     async run() {
-      const name = doc.fileName || `${doc.project.name || "Projekt"}.jss`;
+      const name = doc.fileName || `${doc.project.name || t("Projekt")}.jss`;
       downloadFile(writeJss(doc.project as Project), name);
       await doc.markSaved(name);
     },
@@ -118,8 +128,9 @@ export const commands: Record<string, Command> = {
     help: "Uloží aktuální projekt s novým jménem souboru",
     tip: " Uložit jako...",
     async run() {
-      const suggested = doc.fileName || `${doc.project.name || "Projekt"}.jss`;
-      const name = prompt("Uložit jako:", suggested);
+      const suggested = doc.fileName ||
+        `${doc.project.name || t("Projekt")}.jss`;
+      const name = prompt(t("Uložit jako:"), suggested);
       if (!name) return;
       downloadFile(
         writeJss(doc.project as Project),
@@ -134,7 +145,7 @@ export const commands: Record<string, Command> = {
     run() {
       downloadFile(
         exportCsv(doc.project as Project),
-        `${doc.project.name || "Projekt"}.csv`,
+        `${doc.project.name || t("Projekt")}.csv`,
       );
     },
   },
@@ -247,11 +258,13 @@ export const commands: Record<string, Command> = {
     async run() {
       if (
         !confirm(
-          "Opravdu chcete provést AUTOMATICKÉ GENEROVÁNÍ VŠECH TERMÍNŮ DOKONČENÍ ?",
+          t(
+            "Opravdu chcete provést AUTOMATICKÉ GENEROVÁNÍ VŠECH TERMÍNŮ DOKONČENÍ ?",
+          ),
         )
       ) return;
       await doc.convertDefaultDD();
-      alert("TERMÍNY DOKONOČENÍ byly úspěšně vygenerovány.");
+      alert(t("TERMÍNY DOKONOČENÍ byly úspěšně vygenerovány."));
     },
   },
   convertOptions: {
@@ -356,14 +369,26 @@ export const commands: Record<string, Command> = {
     help: "Tématická nápověda",
     tip: "Tématická nápověda",
     run() {
-      // the original HTML Help content (hlp/*.htm), converted to UTF-8
-      globalThis.open("/assets/help/main_index.htm", "_blank");
+      // the original HTML Help content (hlp/*.htm), converted to UTF-8;
+      // the English translation lives beside it in en/
+      const dir = lang.value === "cs" ? "" : "en/";
+      globalThis.open(`/assets/help/${dir}main_index.htm`, "_blank");
     },
   },
   helpAbout: {
     help: "Zobrazí informace o programu",
     tip: "O programu",
     run: () => view.openDialog("about"),
+  },
+  langEn: {
+    help: "Přepne jazyk aplikace na angličtinu",
+    tip: "English",
+    run: () => setLang("en"),
+  },
+  langCs: {
+    help: "Přepne jazyk aplikace na češtinu",
+    tip: "Čeština",
+    run: () => setLang("cs"),
   },
 };
 
@@ -372,7 +397,10 @@ export const commands: Record<string, Command> = {
 export function isEnabled(id: string): boolean {
   const cmd = commands[id];
   if (!cmd) return false;
-  if (!idle() && !id.startsWith("result") && id !== "helpAbout") return false;
+  if (
+    !idle() && !id.startsWith("result") && !id.startsWith("lang") &&
+    id !== "helpAbout"
+  ) return false;
   return cmd.enabled ? cmd.enabled() : true;
 }
 

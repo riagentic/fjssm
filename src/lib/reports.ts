@@ -14,21 +14,22 @@ import {
   strType,
 } from "./format.ts";
 import { maxJobProcess } from "./project.ts";
+import { cs, Tr } from "./tr.ts";
 
-export function generateProjectReport(p: Project): string[][] {
+export function generateProjectReport(p: Project, t: Tr = cs): string[][] {
   return [
-    ["Název projektu:", p.name],
-    ["Datum:", p.date],
-    ["Vytvořil:", p.maker],
-    ["Typ problému", strType(p)],
+    [t("Název projektu:"), p.name],
+    [t("Datum:"), p.date],
+    [t("Vytvořil:"), p.maker],
+    [t("Typ problému"), strType(p, t)],
   ];
 }
 
-export function generateJobReport(p: Project): string[][] {
+export function generateJobReport(p: Project, t: Tr = cs): string[][] {
   const rows: string[][] = [[
-    "Index jobu",
-    "Název jobu",
-    "Termín dokončení",
+    t("Index jobu"),
+    t("Název jobu"),
+    t("Termín dokončení"),
     "Alfa",
     "Beta",
     "Lam1",
@@ -51,18 +52,18 @@ export function generateJobReport(p: Project): string[][] {
   return rows;
 }
 
-export function generateMachineReport(p: Project): string[][] {
-  const rows: string[][] = [["Index stroje", "Název stroje"]];
+export function generateMachineReport(p: Project, t: Tr = cs): string[][] {
+  const rows: string[][] = [[t("Index stroje"), t("Název stroje")]];
   for (let i = 0; i < p.nMachine; i++) {
     rows.push([String(i), p.machines[i]!.name]);
   }
   return rows;
 }
 
-export function generateProcessReport(p: Project): string[][] {
-  const head = ["Index", "Název"];
+export function generateProcessReport(p: Project, t: Tr = cs): string[][] {
+  const head = ["Index", t("Název")];
   const max = maxJobProcess(p);
-  for (let i = 0; i < max; i++) head.push(`Operace ${i + 1}`);
+  for (let i = 0; i < max; i++) head.push(t("Operace {0}", i + 1));
   const rows: string[][] = [head];
 
   for (let i = 0; i < p.nJob; i++) {
@@ -102,15 +103,16 @@ export function generateResultReport(
   crit: CriteriaSettings,
   schedule: Schedule,
   selectedResult: number, // 0=SA, 1=GA
+  t: Tr = cs,
 ): string[][] {
   const { engine, ptr } = solveScheduleForResult(p, crit, schedule);
   const rows: string[][] = [];
 
-  rows.push(["Název projektu: ", p.name]);
-  rows.push(["Použitá heuristická metoda: ", strMethod(selectedResult)]);
+  rows.push([t("Název projektu: "), p.name]);
+  rows.push([t("Použitá heuristická metoda: "), strMethod(selectedResult, t)]);
   rows.push([]);
-  rows.push(["Datum vytvoření", p.date]);
-  rows.push(["Typ projektu", strType(p)]);
+  rows.push([t("Datum vytvoření"), p.date]);
+  rows.push([t("Typ projektu"), strType(p, t)]);
   rows.push([]);
 
   for (let i = 0; i < p.nJob; i++) {
@@ -127,20 +129,23 @@ export function generateResultReport(
   }
   rows.push([]);
 
-  rows.push(["Hodnota učelové funkce", strNRDouble(ptr.voof)]);
-  rows.push(["Makespan rozvrhu", strNRFn(p, ptr.makespan)]);
+  rows.push([t("Hodnota učelové funkce"), strNRDouble(ptr.voof)]);
+  rows.push([t("Makespan rozvrhu"), strNRFn(p, ptr.makespan)]);
 
   return rows;
 }
 
 /** GenerateConvergenceReport (FJSSIO.cpp:420-449) */
-export function generateConvergenceReport(convergence: number[][]): string[][] {
+export function generateConvergenceReport(
+  convergence: number[][],
+  t: Tr = cs,
+): string[][] {
   const rows: string[][] = [
-    ["", "Max", "", "Suma", ""],
+    ["", "Max", "", t("Suma"), ""],
     ["", "SA", "GA", "SA", "GA"],
   ];
   for (const row of convergence) {
-    const out = [` Kriterium č. ${strNRInt(row[0]!)}`];
+    const out = [" " + t("Kriterium č. {0}", strNRInt(row[0]!))];
     for (let j = 1; j < row.length; j++) out.push(strNRDouble(row[j]!));
     rows.push(out);
   }
@@ -152,10 +157,11 @@ export function generateIterationReport(
   iteration: number[][],
   able: number[],
   creIteration: number,
+  t: Tr = cs,
 ): string[][] {
-  const head = ["Iterace"];
-  for (const c of able) head.push(`Krit. ${strNRInt(c)}`);
-  head.push("Podle krit.");
+  const head = [t("Iterace")];
+  for (const c of able) head.push(t("Krit. {0}", strNRInt(c)));
+  head.push(t("Podle krit."));
   const rows: string[][] = [head];
 
   for (let i = 0; i < iteration.length; i++) {
@@ -174,10 +180,11 @@ export function generateREReport(
   iteration: number[][],
   able: number[],
   creIteration: number,
+  t: Tr = cs,
 ): string[][] {
-  const head = ["Iterace"];
-  for (const c of able) head.push(`RE Krit. ${strNRInt(c)}`);
-  head.push("Podle krit.");
+  const head = [t("Iterace")];
+  for (const c of able) head.push(t("RE Krit. {0}", strNRInt(c)));
+  head.push(t("Podle krit."));
   const rows: string[][] = [head];
 
   for (let i = 0; i < re.length; i++) {
@@ -195,14 +202,15 @@ export function generateREReport(
 export function generateAREReport(
   averageRE: number[][],
   able: number[],
+  t: Tr = cs,
 ): string[][] {
   const head = [""];
-  for (const c of able) head.push(`Kriterium č. ${strNRInt(c)}`);
-  head.push("Celkem");
+  for (const c of able) head.push(t("Kriterium č. {0}", strNRInt(c)));
+  head.push(t("Celkem"));
   const rows: string[][] = [head];
 
   for (let i = 0; i < averageRE.length; i++) {
-    const row = [`Optimalizace užitím kr. ${strNRInt(able[i]!)}`];
+    const row = [t("Optimalizace užitím kr. {0}", strNRInt(able[i]!))];
     for (const v of averageRE[i]!) row.push(strNRDouble(v));
     rows.push(row);
   }

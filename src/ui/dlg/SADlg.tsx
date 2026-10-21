@@ -5,6 +5,7 @@ import { Progress } from "./Progress.tsx";
 import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { strCriterion, strNRDouble } from "../../lib/format.ts";
+import { t } from "../i18n.ts";
 
 const toNum = (s: string): number => {
   const v = parseFloat(s);
@@ -83,7 +84,7 @@ export function SADlg(props: { paramsOnly?: boolean }) {
       />
       <Static text="Průběh cyklů:" x={186} y={61} w={44} h={8} />
       <Static
-        text={solving ? `${s.actCycle} z ${s.maxCycle}` : ""}
+        text={solving ? t("{0} z {1}", s.actCycle, s.maxCycle) : ""}
         x={240}
         y={61}
         w={66}
@@ -99,7 +100,7 @@ export function SADlg(props: { paramsOnly?: boolean }) {
       />
       <Static text="Čas výpočtu" x={186} y={91} w={40} h={8} />
       <Static
-        text={solving ? `${s.runtime} z ${doc.sa.time} s` : ""}
+        text={solving ? t("{0} z {1} s", s.runtime, doc.sa.time) : ""}
         x={240}
         y={91}
         w={72}
@@ -119,7 +120,7 @@ export function SADlg(props: { paramsOnly?: boolean }) {
           <Static text="Aktuální kritérium:" x={18} y={158} w={57} h={8} />
           <Static
             pre
-            text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum)}
+            text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum, t)}
             x={18}
             y={168}
             w={138}

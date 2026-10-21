@@ -2,7 +2,7 @@
 
 Fuzzy Job Shop Scheduling: a 1:1 port of the 2002 C++/MFC desktop app **FJSSM**
 to Deno + [aio](https://github.com/riagentic/aio). Same algorithms, same file
-formats, same Czech UI, same Win2000 look.
+formats, same Win2000 look — in English (default) or the original Czech.
 
 ![FJSS Maker: fuzzy Gantt chart after a simulated-annealing run](docs/screenshot.png)
 
@@ -15,6 +15,7 @@ formats, same Czech UI, same Win2000 look.
 - Binary `.jss` files (byte-exact round-trip with the original), CSV
   import/export
 - Grid, fuzzy Gantt chart, charts, reports, all 11 original dialogs, F1 help
+- English / Czech UI and help: **Help → Language**, remembered per window
 
 ## Run
 

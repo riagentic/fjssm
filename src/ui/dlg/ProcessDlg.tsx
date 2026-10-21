@@ -6,6 +6,7 @@ import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { FN } from "../../type/fn.ts";
 import { isFuzzyPT } from "../../type/model.ts";
+import { t } from "../i18n.ts";
 
 const toInt = (s: string): number => {
   const v = parseInt(s, 10);
@@ -91,7 +92,7 @@ export function ProcessDlg() {
       <GroupBox label="Operace" x={168} y={78} w={234} h={180} />
 
       <select
-        aria-label="Seznam operací"
+        aria-label={t("Seznam operací")}
         size={14}
         style={{ ...dlu(24, 30, 102, 186) }}
         onInput={(e) => selectOp((e.target as HTMLSelectElement).selectedIndex)}
@@ -144,7 +145,7 @@ export function ProcessDlg() {
           await doc.addProcess(jobIdx);
           setSel(newIdx);
           setForm({
-            name: `Operace ${jobIdx}-${newIdx}`,
+            name: t("Operace {0}-{1}", jobIdx, newIdx),
             machine: 0,
             pt: [0, 0, 0, 0] as FN,
           });
@@ -194,7 +195,7 @@ export function ProcessDlg() {
       />
       <Static text="Stroj operace" x={186} y={127} w={43} h={8} />
       <select
-        aria-label="Stroj operace"
+        aria-label={t("Stroj operace")}
         style={{ ...dlu(246, 126, 150, 14) }}
         disabled={!op}
         onInput={(e) =>
@@ -220,7 +221,7 @@ export function ProcessDlg() {
       ))}
       {[0, 1, 2, 3].map((i) => (
         <Edit
-          label={`Čas zpracování a(${i + 1})`}
+          label={t("Čas zpracování a({0})", i + 1)}
           value={form.pt[i]!}
           x={210}
           y={PT_Y[i]!}

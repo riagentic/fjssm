@@ -7,6 +7,7 @@ import { Progress } from "./Progress.tsx";
 import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { strCriterion } from "../../lib/format.ts";
+import { t } from "../i18n.ts";
 
 const toInt = (s: string): number => {
   const v = parseInt(s, 10);
@@ -73,12 +74,12 @@ export function ConvExpDlg() {
       <label style={{ ...dlu(36, 66, 119, 10), whiteSpace: "nowrap" }}>
         <input
           type="checkbox"
-          aria-label="Použít všechna dostupná kritéria"
+          aria-label={t("Použít všechna dostupná kritéria")}
           checked={form.allCriterion}
           disabled={solving}
           onInput={() => patch({ allCriterion: !form.allCriterion })}
         />
-        Použít všechna dostupná kritéria
+        {t("Použít všechna dostupná kritéria")}
       </label>
       <Btn
         text="&Kritérium"
@@ -110,7 +111,7 @@ export function ConvExpDlg() {
         onClick={async () => {
           if (
             !confirm(
-              "Výpočet může trvat i NĚKOLIK MINUT, opravdu chcete pokračovat ?",
+              t("Výpočet může trvat i NĚKOLIK MINUT, opravdu chcete pokračovat ?"),
             )
           ) return;
           await commit();
@@ -143,7 +144,7 @@ export function ConvExpDlg() {
         w={25}
         h={8}
       />
-      <Static text="Simulované žíhání" x={108} y={198} w={59} h={8} />
+      <Static text="Simulované žíhání" x={108} y={198} w={70} h={8} />
       <Static
         text={solving && s.subAction === 1 ? "---------->" : ""}
         x={72}
@@ -151,7 +152,7 @@ export function ConvExpDlg() {
         w={25}
         h={8}
       />
-      <Static text="Genetický algoritmus" x={108} y={210} w={66} h={8} />
+      <Static text="Genetický algoritmus" x={108} y={210} w={70} h={8} />
 
       <Static text="Kritérium" x={246} y={25} w={42} h={8} />
       <Static
@@ -160,6 +161,7 @@ export function ConvExpDlg() {
           solving ? s.criterion : doc.crit.criterion,
           2,
           solving ? s.critMaxOrSum : doc.crit.critMaxOrSum,
+          t,
         )}
         x={252}
         y={36}

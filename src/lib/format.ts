@@ -3,6 +3,7 @@
 import { FN, FN_PART } from "../type/fn.ts";
 import { Project, typeProps } from "../type/model.ts";
 import { RNode } from "../type/engine.ts";
+import { cs, Tr } from "./tr.ts";
 
 export const NR_PT = 0;
 export const NR_DD = 1;
@@ -39,29 +40,29 @@ export function strNode(p: Project, node: RNode, nType = 0): string {
 }
 
 /** GetStrType (FJSSIO.cpp:122-136) */
-export function strType(p: Project): string {
+export function strType(p: Project, t: Tr = cs): string {
   const jm = `(${p.nJob} x ${p.nMachine})`;
   switch (p.type) {
     case 0:
-      return `${jm} - Deterministický případ`;
+      return `${jm} - ${t("Deterministický případ")}`;
     case 1:
-      return `${jm} - Fuzzy termíny dokončení`;
+      return `${jm} - ${t("Fuzzy termíny dokončení")}`;
     case 2:
-      return `${jm} - Fuzzy časy operací`;
+      return `${jm} - ${t("Fuzzy časy operací")}`;
     case 3:
-      return `${jm} - Fuzzy termíny dokončení i fuzzy časy operací`;
+      return `${jm} - ${t("Fuzzy termíny dokončení i fuzzy časy operací")}`;
     default:
-      return `${jm} - Neznámý případ, Chyba !`;
+      return `${jm} - ${t("Neznámý případ, Chyba !")}`;
   }
 }
 
 /** GetStrMethod (FJSSIO.cpp:138-150) */
-export function strMethod(nType: number): string {
+export function strMethod(nType: number, t: Tr = cs): string {
   switch (nType) {
     case 0:
-      return "Simulované žíhání";
+      return t("Simulované žíhání");
     case 1:
-      return "Genetický algoritmus";
+      return t("Genetický algoritmus");
     default:
       return "";
   }
@@ -86,6 +87,7 @@ export function strCriterion(
   criterion: number,
   nType: number,
   critMaxOrSum = 0,
+  t: Tr = cs,
 ): string {
   let str = "";
   if (nType === 0 || nType === 2) {
@@ -96,10 +98,11 @@ export function strCriterion(
   }
   if (nType === 2) str += "\n";
   if (nType === 1 || nType === 2 || nType === 3) {
-    str += CRIT_FORMULAS[criterion] ?? "Neznámé kriterium";
+    str += CRIT_FORMULAS[criterion] ?? t("Neznámé kriterium");
   }
   if (nType === 2) {
-    str += critMaxOrSum === 0 ? "\nVarianta Max" : "\nVarianta Suma";
+    str += "\n" +
+      (critMaxOrSum === 0 ? t("Varianta Max") : t("Varianta Suma"));
   }
   return str;
 }

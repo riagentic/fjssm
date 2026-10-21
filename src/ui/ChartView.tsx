@@ -4,6 +4,7 @@
 import { doc } from "../cell/doc.ts";
 import { ChartKind } from "../type/view.ts";
 import { strCriterion, strNRDouble } from "../lib/format.ts";
+import { t } from "./i18n.ts";
 import { ableCriteria } from "../lib/criteria.ts";
 import { isFuzzyDD, isFuzzyPT, Project } from "../type/model.ts";
 
@@ -33,7 +34,7 @@ function Frame(
       font-size="11"
     >
       <text key="title" x={W / 2} y={20} text-anchor="middle" font-size="14">
-        {props.title}
+        {t(props.title)}
       </text>
       <rect
         key="plot-box"
@@ -65,7 +66,7 @@ function Frame(
             fill={SERIES_COLORS[i % SERIES_COLORS.length]}
           />
           <text x={W - MR + 28} y={MT + 14 + i * 16} font-size="10">
-            {name}
+            {t(name)}
           </text>
         </g>
       ))}
@@ -148,7 +149,7 @@ function HistoryChart() {
         y={H - 10}
         text-anchor="middle"
       >
-        cas vypoctu [s / {strNRDouble(fXScale)}]
+        {t("cas vypoctu [s / {0}]", strNRDouble(fXScale))}
       </text>
       <text
         key="y-label"
@@ -157,7 +158,7 @@ function HistoryChart() {
         text-anchor="middle"
         transform={`rotate(-90 16 ${MT + (H - MT - MB) / 2})`}
       >
-        Hodnota ucelove funkce
+        {t("Hodnota ucelove funkce")}
       </text>
     </Frame>
   );
@@ -193,7 +194,7 @@ function SoareChart() {
         );
       })}
       <text key="x-label" x={ML + plotW / 2} y={H - 10} text-anchor="middle">
-        Jednotliva kriteria
+        {t("Jednotliva kriteria")}
       </text>
     </Frame>
   );

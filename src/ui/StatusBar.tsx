@@ -1,6 +1,7 @@
 // Status bar — message pane + CAP/NUM/SCRL indicators (MainFrm.cpp:56-62)
 import { signal } from "aio/air";
 import { statusText } from "./status.ts";
+import { t } from "./i18n.ts";
 
 const capLock = signal(false);
 const numLock = signal(true);
@@ -32,7 +33,7 @@ function Indicator(props: { label: string; on: boolean }) {
 export function StatusBar() {
   return (
     <div className="statusbar">
-      <div className="sb-pane main sunken-thin">{statusText.value}</div>
+      <div className="sb-pane main sunken-thin">{t(statusText.value)}</div>
       <Indicator label="CAP" on={capLock.value} />
       <Indicator label="NUM" on={numLock.value} />
       <Indicator label="SCRL" on={false} />

@@ -2,9 +2,12 @@
 // dialog-unit positioning (controls placed at their exact .rc coordinates),
 // Enter-activates-default-button and first-control autofocus, like DoModal.
 // DLU scale for 8pt MS Sans Serif: x≈1.5px/DLU, y≈1.625px/DLU.
+// Every caption below (title, group, static, button, field name) is passed
+// in Czech and translated here, so dialogs keep their original .rc text.
 import { onCleanup, onMount, useLocal, useRef } from "aio/air";
 import { view } from "../view-store.ts";
 import { PALETTE } from "../../lib/palette.ts";
+import { t } from "../i18n.ts";
 
 export const DX = 1.5;
 export const DY = 1.625;
@@ -114,7 +117,7 @@ export function Dialog(
             ev.preventDefault();
           }}
         >
-          <span>{props.title}</span>
+          <span>{t(props.title)}</span>
           <button
             type="button"
             className="dlg-close raised-thin"
@@ -167,7 +170,7 @@ export function GroupBox(
           whiteSpace: "nowrap",
         }}
       >
-        {props.label}
+        {t(props.label)}
       </span>
     </div>
   );
@@ -191,7 +194,7 @@ export function Static(
         overflow: "hidden",
       }}
     >
-      {props.text}
+      {t(props.text)}
     </span>
   );
 }
@@ -221,7 +224,7 @@ export function Btn(
       disabled={props.disabled}
       onClick={props.onClick}
     >
-      {props.text.replace("&", "")}
+      {t(props.text).replace("&", "")}
     </button>
   );
 }
@@ -243,7 +246,7 @@ export function Edit(
   return (
     <input
       type="text"
-      aria-label={props.label}
+      aria-label={t(props.label)}
       style={{ ...dlu(props.x, props.y, props.w ?? 40, props.h ?? 14) }}
       value={String(props.value)}
       disabled={props.disabled}

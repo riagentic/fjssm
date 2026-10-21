@@ -1,20 +1,22 @@
 // Menu bar — BCMenu-style bitmapped menus (IDR_MAINFRAME)
 import { useLocal } from "aio/air";
 import { doc } from "../cell/doc.ts";
-import { CRITERIA_SUBMENU, MenuItem, MENUS } from "./menu-def.ts";
+import { MenuItem, MENUS } from "./menu-def.ts";
 import { commands, isEnabled, runCommand } from "./commands.ts";
 import { clearStatus, setStatus } from "./status.ts";
 import { Sprite } from "./Sprite.tsx";
+import { lang, t } from "./i18n.ts";
 
-/** render "&Nový" with the mnemonic underlined */
+/** render "&Nový" (translated) with the mnemonic underlined */
 function Label(props: { text: string }) {
-  const i = props.text.indexOf("&");
-  if (i === -1) return <>{props.text}</>;
+  const text = t(props.text);
+  const i = text.indexOf("&");
+  if (i === -1) return <>{text}</>;
   return (
     <>
-      {props.text.slice(0, i)}
-      <u>{props.text[i + 1]}</u>
-      {props.text.slice(i + 2)}
+      {text.slice(0, i)}
+      <u>{text[i + 1]}</u>
+      {text.slice(i + 2)}
     </>
   );
 }
@@ -26,10 +28,11 @@ function PopupItem(
   // Read on EVERY path, so no instance of this component subscribes to nothing
   // (a radio-less item used to read no signal at all and could never update).
   const selectedResult = doc.results.selectedResult;
+  const current = lang.value;
 
   const enabled = item.grayed
     ? false
-    : item.command === "__submenu_criteria"
+    : item.submenu
     ? true
     : item.command
     ? isEnabled(item.command)
@@ -39,11 +42,11 @@ function PopupItem(
     ? selectedResult === 0
     : item.radio === "ga"
     ? selectedResult === 1
-    : false;
+    : item.radio === current;
 
   const { local: subOpen, set: setSubOpen } = useLocal(false);
 
-  if (item.command === "__submenu_criteria") {
+  if (item.submenu) {
     return (
       <div
         className="menu-item"
@@ -70,7 +73,7 @@ function PopupItem(
             className="menu-popup"
             style={{ left: "100%", top: "-2px" }}
           >
-            {CRITERIA_SUBMENU.map((sub, i) =>
+            {item.submenu.map((sub, i) =>
               sub.separator
                 ? <div key={i} className="menu-sep" />
                 : <PopupItem key={i} item={sub} onRun={props.onRun} />

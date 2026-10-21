@@ -18,6 +18,7 @@ import {
 import { ableCriteria } from "../lib/criteria.ts";
 import { isFuzzyDD, isFuzzyPT } from "../type/model.ts";
 import { registerCopy } from "./copy.ts";
+import { t } from "./i18n.ts";
 
 const TINT = "rgb(255,255,180)";
 
@@ -27,26 +28,26 @@ function computeRows(kind: GridKind): { rows: string[][]; fixRows: number } {
   const able = ableCriteria(isFuzzyPT(p.type), isFuzzyDD(p.type));
   switch (kind) {
     case "project":
-      return { rows: generateProjectReport(p), fixRows: 1 };
+      return { rows: generateProjectReport(p, t), fixRows: 1 };
     case "jobs":
-      return { rows: generateJobReport(p), fixRows: 1 };
+      return { rows: generateJobReport(p, t), fixRows: 1 };
     case "machines":
-      return { rows: generateMachineReport(p), fixRows: 1 };
+      return { rows: generateMachineReport(p, t), fixRows: 1 };
     case "processes":
-      return { rows: generateProcessReport(p), fixRows: 1 };
+      return { rows: generateProcessReport(p, t), fixRows: 1 };
     case "schedule": {
       const sched = (r.selectedResult === 0 ? r.saSchedule : r.gaSchedule) as
         | Schedule
         | null;
       if (!sched) return { rows: [], fixRows: 0 };
       return {
-        rows: generateResultReport(p, doc.crit, sched, r.selectedResult),
+        rows: generateResultReport(p, doc.crit, sched, r.selectedResult, t),
         fixRows: 0,
       };
     }
     case "convergence":
       return {
-        rows: generateConvergenceReport(r.convergence as number[][]),
+        rows: generateConvergenceReport(r.convergence as number[][], t),
         fixRows: 0,
       };
     case "iteration":
@@ -55,6 +56,7 @@ function computeRows(kind: GridKind): { rows: string[][]; fixRows: number } {
           r.iteration as number[][],
           able,
           r.creIterationUsed,
+          t,
         ),
         fixRows: 0,
       };
@@ -65,12 +67,13 @@ function computeRows(kind: GridKind): { rows: string[][]; fixRows: number } {
           r.iteration as number[][],
           able,
           r.creIterationUsed,
+          t,
         ),
         fixRows: 0,
       };
     case "are":
       return {
-        rows: generateAREReport(r.averageRE as number[][], able),
+        rows: generateAREReport(r.averageRE as number[][], able, t),
         fixRows: 0,
       };
   }

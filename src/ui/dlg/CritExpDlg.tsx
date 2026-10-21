@@ -5,6 +5,7 @@ import { Progress } from "./Progress.tsx";
 import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { strCriterion } from "../../lib/format.ts";
+import { t } from "../i18n.ts";
 
 const toInt = (s: string): number => {
   const v = parseInt(s, 10);
@@ -50,27 +51,27 @@ export function CritExpDlg() {
       <label style={{ ...dlu(18, 54, 74, 10), whiteSpace: "nowrap" }}>
         <input
           type="radio"
-          aria-label="Simulované žíhání"
+          aria-label={t("Simulované žíhání")}
           checked={form.method === 0}
           disabled={solving}
           onInput={() => patch({ method: 0 as const })}
         />
-        Simulované žíhání
+        {t("Simulované žíhání")}
       </label>
       <label style={{ ...dlu(18, 66, 81, 10), whiteSpace: "nowrap" }}>
         <input
           type="radio"
-          aria-label="Genetický algoritmus"
+          aria-label={t("Genetický algoritmus")}
           checked={form.method === 1}
           disabled={solving}
           onInput={() => patch({ method: 1 as const })}
         />
-        Genetický algoritmus
+        {t("Genetický algoritmus")}
       </label>
       <Static text="Aktuální určující kritérium" x={18} y={84} w={80} h={8} />
       <Static
         pre
-        text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum)}
+        text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum, t)}
         x={18}
         y={97}
         w={204}
@@ -110,7 +111,7 @@ export function CritExpDlg() {
         onClick={async () => {
           if (
             !confirm(
-              "Výpočet může trvat i NĚKOLIK MINUT, opravdu chcete pokračovat ?",
+              t("Výpočet může trvat i NĚKOLIK MINUT, opravdu chcete pokračovat ?"),
             )
           ) return;
           await commit();

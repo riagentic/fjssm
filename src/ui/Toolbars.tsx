@@ -2,6 +2,7 @@
 // (MainFrm.cpp:118-164, FJSSM.rc:591-642)
 import { commands, isEnabled, runCommand } from "./commands.ts";
 import { clearStatus, setStatus } from "./status.ts";
+import { t } from "./i18n.ts";
 
 type Btn = { cmd: string; strip: 1 | 2; index: number } | "sep";
 
@@ -87,7 +88,7 @@ function Strip(props: { buttons: Btn[] }) {
             className="tb-btn"
             style={{ minWidth: "23px", minHeight: "22px", boxShadow: "none" }}
             disabled={!enabled}
-            title={commands[b.cmd]?.tip.trim()}
+            title={t(commands[b.cmd]?.tip.trim() ?? "")}
             onMouseEnter={() => setStatus(commands[b.cmd]?.help ?? "")}
             onMouseLeave={clearStatus}
             onClick={() => runCommand(b.cmd)}

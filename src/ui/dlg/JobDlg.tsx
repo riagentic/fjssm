@@ -14,6 +14,7 @@ import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { FN } from "../../type/fn.ts";
 import { isFuzzyDD } from "../../type/model.ts";
+import { t } from "../i18n.ts";
 
 const toNum = (s: string): number => {
   const v = parseFloat(s);
@@ -79,7 +80,7 @@ export function JobDlg() {
       <GroupBox label="Váhy" x={330} y={126} w={90} h={72} />
 
       <select
-        aria-label="Seznam jobů"
+        aria-label={t("Seznam jobů")}
         size={12}
         style={{ ...dlu(24, 24, 102, 144) }}
         onInput={(e) => select((e.target as HTMLSelectElement).selectedIndex)}
@@ -116,7 +117,9 @@ export function JobDlg() {
         disabled={!job}
         onClick={async () => {
           if (
-            !confirm("Opravdu chcete odstranit job včetně všech jeho operací?")
+            !confirm(
+              t("Opravdu chcete odstranit job včetně všech jeho operací?"),
+            )
           ) return;
           const left = await doc.removeJob(sel);
           select(Math.max(0, Math.min(sel, left - 1)));
@@ -165,7 +168,7 @@ export function JobDlg() {
       ))}
       {[0, 1, 2, 3].map((i) => (
         <Edit
-          label={`Termín dokončení d(${i + 1})`}
+          label={t("Termín dokončení d({0})", i + 1)}
           value={form.dd[i]!}
           x={DD_EDIT[i]![0]}
           y={DD_EDIT[i]![1]}

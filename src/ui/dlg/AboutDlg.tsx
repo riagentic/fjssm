@@ -1,6 +1,7 @@
 // O programu — IDD_ABOUTBOX 214×174 (FJSSM.rc) with scrolling CCreditStatic
 import { Btn, Dialog, dlu, Static } from "./Dialog.tsx";
 import { view } from "../view-store.ts";
+import { t } from "../i18n.ts";
 
 const CREDITS: ({ text: string; blue?: boolean } | { img: string })[] = [
   { text: "Program pro fuzzy rozvrhování" },
@@ -28,8 +29,8 @@ export function AboutDlg() {
         alt=""
         style={{ ...dlu(12, 4), imageRendering: "pixelated" }}
       />
-      <Static text="Program FJSS Maker" x={54} y={12} w={66} h={8} />
-      <Static text="Verze 1.0" x={54} y={24} w={32} h={8} />
+      <Static text="Program FJSS Maker" x={54} y={12} w={80} h={8} />
+      <Static text="Verze 1.0" x={54} y={24} w={80} h={8} />
       <div
         className="sunken-thin"
         style={{
@@ -62,7 +63,7 @@ export function AboutDlg() {
                     lineHeight: "16px",
                   }}
                 >
-                  {c.text || " "}
+                  {c.text ? t(c.text) : " "}
                 </div>
               )
           )}

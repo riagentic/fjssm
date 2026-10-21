@@ -7,6 +7,7 @@ import { Project, Schedule } from "../type/model.ts";
 import { isFuzzyDD, isFuzzyPT } from "../type/model.ts";
 import { solveScheduleForResult } from "../lib/reports.ts";
 import { strMethod, strType } from "../lib/format.ts";
+import { t } from "./i18n.ts";
 import { PALETTE } from "../lib/palette.ts";
 import { registerCopy } from "./copy.ts";
 import { FN_PART } from "../type/fn.ts";
@@ -222,14 +223,14 @@ export function GanttView() {
           x={XMARGIN * fx + LLEGEND}
           y={YMARGIN * fy + 20 + 11}
         >
-          {strType(p)}
+          {strType(p, t)}
         </text>
         <text
           key="lg-method"
           x={XMARGIN * fx + LLEGEND}
           y={YMARGIN * fy + 40 + 11}
         >
-          {strMethod(r.selectedResult)}
+          {strMethod(r.selectedResult, t)}
         </text>
         {/* DrawMainLegend (gant.cpp:520-528) */}
         {p.jobs.map((_, i) => (

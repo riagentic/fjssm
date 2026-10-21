@@ -7,6 +7,7 @@ import { Progress } from "./Progress.tsx";
 import { doc } from "../../cell/doc.ts";
 import { view } from "../view-store.ts";
 import { strCriterion, strNRDouble } from "../../lib/format.ts";
+import { t } from "../i18n.ts";
 
 const toNum = (s: string): number => {
   const v = parseFloat(s);
@@ -111,7 +112,7 @@ export function GADlg(props: { paramsOnly?: boolean }) {
       <Static text="Aktuální kritérium:" x={216} y={19} w={57} h={8} />
       <Static
         pre
-        text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum)}
+        text={strCriterion(doc.crit.criterion, 2, doc.crit.critMaxOrSum, t)}
         x={216}
         y={30}
         w={120}
@@ -147,7 +148,7 @@ export function GADlg(props: { paramsOnly?: boolean }) {
       />
       <Static text="Cyklus:" x={216} y={127} w={48} h={8} />
       <Static
-        text={solving ? `${s.actCycle} z ${s.maxCycle}` : ""}
+        text={solving ? t("{0} z {1}", s.actCycle, s.maxCycle) : ""}
         x={258}
         y={127}
         w={69}
@@ -163,7 +164,7 @@ export function GADlg(props: { paramsOnly?: boolean }) {
       />
       <Static text="Čas:" x={216} y={157} w={48} h={8} />
       <Static
-        text={solving ? `${s.runtime} z ${doc.ga.time} s` : ""}
+        text={solving ? t("{0} z {1} s", s.runtime, doc.ga.time) : ""}
         x={258}
         y={157}
         w={67}

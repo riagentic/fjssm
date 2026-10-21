@@ -8,7 +8,8 @@ export interface MenuItem {
   command?: string;
   icon?: MenuIcon;
   separator?: boolean;
-  radio?: "sa" | "ga"; // Výsledky SA/GA radio marks
+  radio?: "sa" | "ga" | "en" | "cs"; // Výsledky SA/GA, Jazyk radio marks
+  submenu?: MenuItem[];
   grayed?: boolean;
 }
 
@@ -16,6 +17,24 @@ export interface Menu {
   label: string;
   items: MenuItem[];
 }
+
+export const CRITERIA_SUBMENU: MenuItem[] = [
+  { label: "&Iterace výpočtu", command: "resultCritIteration" },
+  { label: "&Relativní chyby", command: "resultCritRe" },
+  { label: "&Průměr relativních chyb", command: "resultCritAre", icon: [2, 9] },
+  {
+    label: "&Celkové relativní chyby",
+    command: "resultCritSoare",
+    icon: [2, 10],
+  },
+];
+
+// Nápověda → Jazyk: language switch (not in the original). The names stay in
+// their own language so either one can be found from the other.
+export const LANGUAGE_SUBMENU: MenuItem[] = [
+  { label: "English", command: "langEn", radio: "en" },
+  { label: "Čeština", command: "langCs", radio: "cs" },
+];
 
 export const MENUS: Menu[] = [
   {
@@ -129,8 +148,7 @@ export const MENUS: Menu[] = [
       { label: "&Průběh výpočtu", command: "resultRun", icon: [2, 7] },
       { separator: true },
       { label: "&Konvergence", command: "resultConvexp", icon: [2, 8] },
-      // Kritéria submenu flattened items are provided via `submenu` below
-      { label: "Kri&téria", command: "__submenu_criteria" },
+      { label: "Kri&téria", submenu: CRITERIA_SUBMENU },
       { separator: true },
       { label: "&Simulované žíhání", command: "resultSA", radio: "sa" },
       { label: "&Genetický algoritmus", command: "resultGA", radio: "ga" },
@@ -142,17 +160,8 @@ export const MENUS: Menu[] = [
       { label: "&Nápověda", accel: "F1", command: "helpHelp" },
       { separator: true },
       { label: "&O Programu", command: "helpAbout", icon: [2, 11] },
+      { separator: true },
+      { label: "&Jazyk", submenu: LANGUAGE_SUBMENU },
     ],
-  },
-];
-
-export const CRITERIA_SUBMENU: MenuItem[] = [
-  { label: "&Iterace výpočtu", command: "resultCritIteration" },
-  { label: "&Relativní chyby", command: "resultCritRe" },
-  { label: "&Průměr relativních chyb", command: "resultCritAre", icon: [2, 9] },
-  {
-    label: "&Celkové relativní chyby",
-    command: "resultCritSoare",
-    icon: [2, 10],
   },
 ];

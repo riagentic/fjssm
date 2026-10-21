@@ -7,6 +7,7 @@ import { view } from "../view-store.ts";
 import { strCriterion } from "../../lib/format.ts";
 import { criterionFlags } from "../../lib/criteria.ts";
 import { isFuzzyDD, isFuzzyPT } from "../../type/model.ts";
+import { t } from "../i18n.ts";
 
 const toNum = (s: string): number => {
   const v = parseFloat(s);
@@ -53,12 +54,12 @@ function Radio(
     >
       <input
         type="radio"
-        aria-label={props.name}
+        aria-label={t(props.name)}
         checked={props.checked}
         disabled={props.disabled}
         onInput={props.onPick}
       />
-      {props.label}
+      {props.label && t(props.label)}
     </label>
   );
 }
@@ -114,7 +115,7 @@ export function CriteriaDlg() {
       {CRIT_POS.map(([, y], i) => (
         <span
           style={{
-            ...dlu(CRIT_LABEL_X[i]!, y, i >= 6 ? 144 : 120, 12),
+            ...dlu(CRIT_LABEL_X[i]!, y, i >= 6 ? 150 : 120, 12),
             color: flags[i] ? "inherit" : "var(--graytext)",
             whiteSpace: "nowrap",
             overflow: "hidden",
